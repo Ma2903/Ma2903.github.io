@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Manu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1> Portifólio de Manoela </h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#projects">Projetos</a></li>
+                    <li><a href="#skills">Habilidades</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+        <section id="home" class="intro">
+            <img src="img/eu.jpeg" alt="Foto de Manu">
+            <div class="intro-text">
+                <h2>Olá, sou a Manu!</h2>
+                <p>Sou desenvolvedora e curso análise e desenvolvimento de sistemas, apaixonada por Front-End e Design.</p>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <!-- Seção de Projetos -->
+        <section id="projects">
+            <h2>Meus Projetos</h2>
+            <div class="project-list" id="project-list">
+                <!-- Projetos serão carregados dinamicamente aqui -->
+            </div>
+        </section>
+
+        <!-- Seção de Habilidades -->
+        <section id="skills">
+            <h2>Minhas Habilidades</h2>
+            <div class="skills-container">
+                <div class="skill">
+                    <i class="fab fa-php"></i>
+                    <h3>PHP</h3>
+                    <p>Desenvolvimento de aplicações web dinâmicas com PHP.</p>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-database"></i>
+                    <h3>SQL</h3>
+                    <p>Gerenciamento e manipulação de bancos de dados relacionais.</p>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-html5"></i>
+                    <i class="fab fa-css3"></i>
+                    <h3>HTML & CSS</h3>
+                    <p>Criação de layouts responsivos e bem estruturados.</p>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-js-square"></i>
+                    <h3>JavaScript</h3>
+                    <p>Desenvolvimento de interatividade e lógica em aplicações web.</p>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-git"></i>
+                    <h3>Git & GitHub</h3>
+                    <p>Controle de versão e colaboração em projetos.</p>
+                </div>
+                <div class="skill">
+                    <i class="fa-solid fa-c"></i>
+                    <h3>Canva</h3>
+                    <p>Criação de designs gráficos e materiais visuais.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section id="contact">
+            <h2>Contato</h2>
+            <form id="contact-form" action="https://formspree.io/f/xgvwzygo" method="POST">
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 Manoela. Todos os direitos reservados.</p>
+        <div class="footer-content">
+            <p class="footer-text">Siga-me nas redes sociais:</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/Ma2903" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+        </div>
+    </footer>     
+    
+    <script src="scripts.js" defer></script>
+</body>
+</html>
