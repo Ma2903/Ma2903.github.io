@@ -5,20 +5,63 @@
     box-sizing: border-box;
 }
 
+/* Variáveis para o modo claro */
+:root {
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --header-background: #2c3e50;
+    --header-text: #fff;
+    --intro-background: #ecf0f1;
+    --project-background: #fff;
+    --project-text: #666;
+    --button-background: #2c3e50;
+    --button-text: #fff;
+    --button-hover-background: #34495e;
+    --link-color: #2c3e50;
+    --link-hover-color: #1a242f;
+    --footer-background: #2c3e50;
+    --footer-text: #fff;
+    --footer-link-color: #fff;
+    --footer-link-hover-color: #ecf0f1;
+}
+
+/* Variáveis para o modo escuro */
+[data-theme='dark'] {
+    --background-color: #333;
+    --text-color: #f4f4f4;
+    --header-background: #1a1a1a;
+    --header-text: #f4f4f4;
+    --intro-background: #444;
+    --project-background: #555;
+    --project-text: #ddd;
+    --button-background: #1a1a1a;
+    --button-text: #f4f4f4;
+    --button-hover-background: #333;
+    --link-color: #f4f4f4;
+    --link-hover-color: #ddd;
+    --footer-background: #1a1a1a;
+    --footer-text: #f4f4f4;
+    --footer-link-color: #f4f4f4;
+    --footer-link-hover-color: #ddd;
+}
+
+/* Corpo da Página */
 body {
     font-family: 'Poppins', Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Layout Principal */
+main {
+    flex: 1;
 }
 
 /* Estilização do Header */
 header {
-    background: #8a7aa9; /* Lavanda escura */
-    color: #fff;
+    background: var(--header-background);
+    color: var(--header-text);
     padding: 0;
     position: relative;
 }
@@ -29,13 +72,13 @@ header {
     align-items: center;
     padding: 20px 10%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background: #8a7aa9; /* Lavanda escura */
+    background: var(--header-background);
 }
 
 .logo h1 {
     font-size: 2rem;
     margin: 0;
-    color: #fff;
+    color: var(--header-text);
 }
 
 nav ul {
@@ -49,16 +92,18 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--header-text);
     text-decoration: none;
     padding: 10px 15px;
     font-weight: bold;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
     border-radius: 5px;
 }
 
 nav ul li a:hover {
-    background: #736599; /* Lavanda intermediária */
+    background: var(--button-hover-background);
+    color: var(--header-text);
+    transform: scale(1.05);
 }
 
 /* Seção de Introdução */
@@ -69,8 +114,8 @@ nav ul li a:hover {
     flex-direction: column;
     text-align: center;
     padding: 50px 20px;
-    background: #e6e1ed; /* Lavanda clara */
-    color: #333;
+    background: var(--intro-background);
+    color: var(--text-color);
 }
 
 .intro img {
@@ -78,7 +123,7 @@ nav ul li a:hover {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border: 4px solid #8a7aa9;
+    border: 4px solid var(--header-background);
     transition: transform 0.3s ease;
 }
 
@@ -89,7 +134,7 @@ nav ul li a:hover {
 .intro h2 {
     margin-top: 20px;
     font-size: 2.5rem;
-    color: #8a7aa9; /* Lavanda escura */
+    color: var(--header-background);
 }
 
 .intro p {
@@ -100,12 +145,12 @@ nav ul li a:hover {
     margin-right: auto;
 }
 
-/* Página Inicial */
+/* Seção Inicial */
 #home {
     text-align: center;
     padding: 50px 20px;
-    background: #e6e1ed; /* Lavanda clara */
-    color: #333;
+    background: var(--intro-background);
+    color: var(--text-color);
 }
 
 #home img {
@@ -113,7 +158,7 @@ nav ul li a:hover {
     width: 150px;
     height: 150px;
     object-fit: cover;
-    border: 4px solid #8a7aa9;
+    border: 4px solid var(--header-background);
     transition: transform 0.3s ease;
 }
 
@@ -124,7 +169,7 @@ nav ul li a:hover {
 #home h1 {
     margin-top: 20px;
     font-size: 2.5rem;
-    color: #8a7aa9;
+    color: var(--header-background);
 }
 
 #home p {
@@ -138,14 +183,14 @@ nav ul li a:hover {
 /* Seção de Projetos */
 #projects {
     padding: 40px 20px;
-    background: #fff;
+    background: var(--project-background);
 }
 
-h2 {
+#projects h2 {
     text-align: center;
     margin-bottom: 30px;
     font-size: 2rem;
-    color: #8a7aa9;
+    color: var(--header-background);
 }
 
 .project-list {
@@ -156,7 +201,7 @@ h2 {
 }
 
 .project {
-    background: #f4f4f4;
+    background: var(--project-background);
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
@@ -173,41 +218,36 @@ h2 {
 .project h3 {
     margin-bottom: 10px;
     font-size: 1.5rem;
-    color: #736599;
+    color: var(--project-text);
 }
 
 .project p {
     margin-bottom: 15px;
     font-size: 1rem;
-    color: #666;
+    color: var(--project-text);
 }
 
 .project a {
-    color: #8a7aa9;
+    color: var(--header-background);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .project a:hover {
-    color: #5f4b8b; /* Lavanda mais escura */
+    color: var(--link-hover-color);
 }
 
-/* Container Principal para Layout Flexível */
-main {
-    flex: 1;
-}
-
-/* Estilização da Seção de Habilidades */
+/* Seção de Habilidades */
 #skills {
     padding: 40px 20px;
-    background: #fff;
+    background: var(--project-background);
     text-align: center;
 }
 
 #skills h2 {
     font-size: 2rem;
-    color: #8a7aa9; /* Lavanda escura */
+    color: var(--header-background);
     margin-bottom: 20px;
 }
 
@@ -219,8 +259,8 @@ main {
 }
 
 .skill {
-    background: #8a7aa9; /* Lavanda escura */
-    color: #fff;
+    background: var(--header-background);
+    color: var(--button-text);
     padding: 20px;
     border-radius: 10px;
     width: 250px;
@@ -229,7 +269,7 @@ main {
 }
 
 .skill:hover {
-    background: #736599; /* Lavanda intermediária */
+    background: var(--button-hover-background);
     transform: scale(1.05);
 }
 
@@ -247,18 +287,18 @@ main {
     font-size: 1rem;
 }
 
-/* Estilização da Seção de Contato */
+/* Seção de Contato */
 #contact {
-    background: #e6e1ed; /* Lavanda clara */
+    background: var(--intro-background);
     padding: 30px 20px;
     text-align: center;
-    border-top: 2px solid #8a7aa9; /* Lavanda escura */
+    border-top: 2px solid var(--header-background);
     padding-bottom: 70px; /* Adiciona espaço suficiente para o rodapé */
 }
 
 #contact h2 {
     font-size: 2rem;
-    color: #8a7aa9; /* Lavanda escura */
+    color: var(--header-background);
     margin-bottom: 20px;
 }
 
@@ -272,7 +312,7 @@ form {
 
 label {
     font-size: 1rem;
-    color: #333;
+    color: var(--text-color);
 }
 
 input, textarea {
@@ -288,65 +328,46 @@ textarea {
     resize: vertical;
 }
 
+/* Estilo dos Botões */
 button {
-    background: #8a7aa9; /* Lavanda escura */
-    color: #fff;
+    background: var(--button-background);
+    color: var(--button-text);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
-    background: #736599; /* Lavanda intermediária */
+    background: var(--button-hover-background);
+    transform: scale(1.05);
 }
 
-/* Estilização do Rodapé */
+/* Rodapé */
 footer {
-    background: #8a7aa9; /* Lavanda escura */
-    color: #fff;
+    background: var(--footer-background);
+    color: var(--footer-text);
     text-align: center;
-    padding: 15px 20px;
-    width: 100%;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     position: relative;
-}
-
-footer p {
-    margin: 0;
-    font-size: 0.9rem;
-}
-
-.footer-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.footer-text {
-    font-size: 1rem;
-    font-weight: bold;
+    bottom: 0;
 }
 
 .footer-links {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    margin-bottom: 15px;
 }
 
 .footer-links a {
-    color: #fff;
+    color: var(--footer-link-color);
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: #e6e1ed; /* Lavanda clara */
+    color: var(--footer-link-hover-color);
 }
 
 .footer-links i {
@@ -369,8 +390,9 @@ footer p {
         margin-bottom: 10px;
     }
 
-    #skills ul {
+    #skills .skills-container {
         flex-direction: column;
+        align-items: center;
     }
 
     #home img {
@@ -382,55 +404,16 @@ footer p {
         font-size: 2rem;
     }
 }
-.project {
-    background: #f4f4f4;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.project:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-}
+@media (max-width: 480px) {
+    .project {
+        width: 100%;
+        max-width: 100%;
+        margin: 10px 0;
+    }
 
-.project h3 {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-    color: #736599;
-}
-
-.project p {
-    margin-bottom: 15px;
-    font-size: 1rem;
-    color: #666;
-}
-
-.project a {
-    color: #8a7aa9;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.project a:hover {
-    color: #5f4b8b;
-}
-
-nav ul li a {
-    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
-}
-
-nav ul li a:hover {
-    background: #736599; /* Lavanda intermediária */
-    color: #fff;
-    transform: scale(1.05);
-}
-
-.project:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
 }

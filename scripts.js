@@ -74,3 +74,20 @@ document.addEventListener("DOMContentLoaded", function() {
     // Carregar projetos do GitHub
     loadProjects();
 });
+
+const toggleTheme = () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+
+    // Atualiza o texto do botão de alternância
+    const themeToggleButton = document.getElementById('theme-toggle');
+    if (newTheme === 'dark') {
+        themeToggleButton.textContent = 'Modo Claro';
+    } else {
+        themeToggleButton.textContent = 'Modo Escuro';
+    }
+};
+
+// Adiciona o ouvinte de evento para alternar o tema
+document.querySelector('#theme-toggle').addEventListener('click', toggleTheme);
