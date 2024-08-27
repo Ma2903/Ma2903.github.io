@@ -51,6 +51,7 @@ body {
     line-height: 1.6;
     background-color: var(--background-color);
     color: var(--text-color);
+    transition: font-size 0.3s ease;
 }
 
 /* Layout Principal */
@@ -317,10 +318,15 @@ label {
 
 input, textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 12px; /* Ajuste para melhor usabilidade */
+    border: 1px solid var(--text-color); /* Atualizado para responsividade */
     border-radius: 5px;
     font-size: 1rem;
+    transition: border-color 0.3s ease; /* Adiciona transição */
+}
+
+input:focus, textarea:focus {
+    border-color: var(--header-background); /* Cor de foco */
 }
 
 textarea {
@@ -345,75 +351,23 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Rodapé */
+/* Estilo do Rodapé */
 footer {
     background: var(--footer-background);
     color: var(--footer-text);
     text-align: center;
-    padding: 20px;
+    padding: 15px 10px;
     position: relative;
     bottom: 0;
+    width: 100%;
 }
 
-.footer-links {
-    margin-bottom: 15px;
-}
-
-.footer-links a {
+footer a {
     color: var(--footer-link-color);
     text-decoration: none;
-    font-size: 1rem;
     transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
+footer a:hover {
     color: var(--footer-link-hover-color);
-}
-
-.footer-links i {
-    font-size: 1.5rem;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    .project-list {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin-bottom: 10px;
-    }
-
-    #skills .skills-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #home img {
-        width: 120px;
-        height: 120px;
-    }
-
-    #home h1 {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .project {
-        width: 100%;
-        max-width: 100%;
-        margin: 10px 0;
-    }
-
-    .skills-container {
-        flex-direction: column;
-        align-items: center;
-    }
 }
