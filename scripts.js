@@ -91,3 +91,12 @@ const toggleTheme = () => {
 
 // Adiciona o ouvinte de evento para alternar o tema
 document.querySelector('#theme-toggle').addEventListener('click', toggleTheme);
+
+// JavaScript para rolar suavemente até o topo
+document.getElementById('scrollToTopBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
