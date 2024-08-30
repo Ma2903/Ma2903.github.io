@@ -51,6 +51,7 @@ body {
     line-height: 1.6;
     background-color: var(--background-color);
     color: var(--text-color);
+    transition: font-size 0.3s ease;
 }
 
 /* Layout Principal */
@@ -332,10 +333,15 @@ label {
 
 input, textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 12px; /* Ajuste para melhor usabilidade */
+    border: 1px solid var(--text-color); /* Atualizado para responsividade */
     border-radius: 5px;
     font-size: 1rem;
+    transition: border-color 0.3s ease; /* Adiciona transição */
+}
+
+input:focus, textarea:focus {
+    border-color: var(--header-background); /* Cor de foco */
 }
 
 textarea {
@@ -359,11 +365,12 @@ button:hover, input[type="submit"]:hover {
     background: var(--button-hover-background);
 }
 
-/* Rodapé */
+/* Estilo do Rodapé */
 footer {
     background: var(--footer-background);
     color: var(--footer-text);
     text-align: center;
+<<<<<<< HEAD
     padding: 20px;
 }
 
@@ -384,11 +391,23 @@ footer {
     color: var(--footer-link-color);
     text-decoration: none;
     font-weight: bold;
+=======
+    padding: 15px 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: var(--footer-link-color);
+    text-decoration: none;
+>>>>>>> 227d719272e72d61e3625828b1e2029997529385
     transition: color 0.3s ease;
 }
 
-.footer-links a:hover {
+footer a:hover {
     color: var(--footer-link-hover-color);
+<<<<<<< HEAD
 }
 
 /* Responsividade */
@@ -451,4 +470,6 @@ footer {
 
 .scroll-to-top i {
     margin: 0;
+=======
+>>>>>>> 227d719272e72d61e3625828b1e2029997529385
 }
