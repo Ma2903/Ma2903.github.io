@@ -1,150 +1,49 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="light">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfólio de Manu, desenvolvedora apaixonada por Front-End e Design.">
-    <meta name="keywords" content="desenvolvedora front-end, HTML, CSS, JavaScript, PHP, SQL, GitHub, portfólio">
-    <meta name="author" content="Manoela">
-    <meta name="robots" content="index, follow">
-    <title>Portfólio de Manu</title>
+    <title>Portfólio - Manu</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script defer src="scripts.js"></script>
 </head>
 <body>
     <header>
         <div class="header-container">
-            <div class="logo">
-                <h1>Portfólio de Manoela</h1>
-            </div>
+            <h1>Manu</h1>
             <nav>
-                <ul>
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#projects">Projetos</a></li>
-                    <li><a href="#skills">Habilidades</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                    <li><a href="#certifications">Certificados e Cursos</a></li>
-                    <li> <a id="theme-toggle" class="mode-toggle"> Modo Escuro</a> </li>
+                <ul class="is-flex is-justify-content-center is-align-items-center">
+                    <li><a class="button is-light" href="#sobre">Sobre Mim</a></li>
+                    <li><a class="button is-light" href="#portfolio">Portfólio</a></li>
+                    <li><a class="button is-light" href="#contato">Contato</a></li>
+                    <li><a id="toggle-theme" class="button is-light">🌙</a></li>
                 </ul>
             </nav>
         </div>
-        <section id="home" class="intro">
-            <img src="img/eu.jpeg" alt="Foto de Manu, desenvolvedora front-end">
-            <div class="intro-text">
-                <h2>Olá, sou a Manu!</h2>
-                <p>Sou desenvolvedora e curso análise e desenvolvimento de sistemas, apaixonada por Front-End e Design.</p>
-            </div>
-        </section>
     </header>
 
-    <main>
-        <!-- Seção de Projetos -->
-        <section id="projects">
-            <h2>Meus Projetos</h2>
-            <div class="project-list" id="project-list">
-                <!-- Projetos serão carregados dinamicamente aqui -->
-            </div>
-        </section>
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>Olá! Sou Manu, estudante de Análise e Desenvolvimento de Sistemas, apaixonado por desenvolvimento front-end. Tenho experiência na criação de interfaces modernas e responsivas, utilizando tecnologias como HTML, CSS, JavaScript, PHP e SQL. Atualmente, estou aprimorando minhas habilidades e trabalhando em projetos como um sistema de aluguel de livros online e um sistema financeiro para lojas de roupas. Meu objetivo é desenvolver soluções inovadoras que tornem a experiência do usuário mais intuitiva e eficiente.</p>
+    </section>
 
-        <!-- Seção de Habilidades -->
-        <section id="skills">
-            <h2>Minhas Habilidades</h2>
-            <div class="skills-container">
-                <div class="skill">
-                    <i class="fab fa-php" aria-hidden="true"></i>
-                    <h3>PHP</h3>
-                    <p>Desenvolvimento de aplicações web dinâmicas com PHP.</p>
-                </div>
-                <div class="skill">
-                    <i class="fas fa-database" aria-hidden="true"></i>
-                    <h3>SQL</h3>
-                    <p>Gerenciamento e manipulação de bancos de dados relacionais.</p>
-                </div>
-                <div class="skill">
-                    <i class="fab fa-html5" aria-hidden="true"></i>
-                    <i class="fab fa-css3" aria-hidden="true"></i>
-                    <h3>HTML & CSS</h3>
-                    <p>Criação de layouts responsivos e bem estruturados.</p>
-                </div>
-                <div class="skill">
-                    <i class="fab fa-js-square" aria-hidden="true"></i>
-                    <h3>JavaScript</h3>
-                    <p>Desenvolvimento de interatividade e lógica em aplicações web.</p>
-                </div>
-                <div class="skill">
-                    <i class="fab fa-git" aria-hidden="true"></i>
-                    <h3>Git & GitHub</h3>
-                    <p>Controle de versão e colaboração em projetos.</p>
-                </div>
-                <div class="skill">
-                    <i class="fa-solid fa-c" aria-hidden="true"></i>
-                    <h3>Canva</h3>
-                    <p>Criação de designs gráficos e materiais visuais.</p>
-                </div>
-            </div>
-        </section>
+    <section id="portfolio">
+        <h2>Portfólio</h2>
+        <div id="projetos"></div>
+    </section>
 
-         <!-- Seção de Certificações -->
-         <section id="certifications">
-            <h2>Certificações e Cursos</h2>
-            <div class="certification-list">
-                <div class="certification">
-                    <i class="fas fa-certificate" aria-hidden="true"></i>
-                    <h3>Certificação em Tecnica em Desenvolvimento de Sistemas</h3>
-                    <p>Instituição: ETEC Prof. Dr. Antônio Eufrásio de Toledo </p>
-                    <p>Descrição: Curso tecnico de desenvolvimento de sistemas integrado ao ensino médio.</p>
-                </div>
-                <div class="certification">
-                    <i class="fas fa-certificate" aria-hidden="true"></i>
-                    <h3>Curso De Língua Inglesa </h3>
-                    <p>Instituição: CCAA Pirapozinho </p>
-                    <p>Descrição: Curso de língua inglesa de 11 níveis, do básico ao avançado superior.</p>
-                </div>
-                <!-- Adicione mais certificações e cursos conforme necessário -->
-            </div>
-        </section>
+    <section id="contato">
+        <h2>Contato</h2>
+        <form>
+            <input type="text" placeholder="Nome" required>
+            <input type="email" placeholder="E-mail" required>
+            <textarea placeholder="Mensagem" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
 
-        <!-- Contato -->
-        <section id="contact">
-            <h2>Contato</h2>
-            <form id="contact-form" action="https://formspree.io/f/xgvwzygo" method="POST">
-                <div class="form-group">
-                    <label for="name">Nome:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Mensagem:</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-    </main>
-
-    <!-- Rodapé -->
     <footer>
-        <p>&copy; 2024 Manoela. Todos os direitos reservados.</p>
-        <div class="footer-content">
-            <p class="footer-text">Siga-me nas redes sociais:</p>
-            <div class="footer-links">
-                <a href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" aria-label="LinkedIn">
-                   <i class="fab fa-linkedin"></i> <span> LinkedIn </span> 
-                </a>
-                <a href="https://github.com/Ma2903" target="_blank" aria-label="GitHub">
-                    <i class="fab fa-github"></i> <span> GitHub </span>
-            </div>
-        </div>
-    </footer>     
-
-        <!-- Botão de voltar ao topo -->
-    <a href="#" class="scroll-to-top" id="scrollToTopBtn">
-        <i class="fa fa-chevron-up"></i> <!-- Usando Font Awesome para a seta -->
-    </a>
-
-    <script src="scripts.js" defer></script>
+        <p>&copy; 2025 Manu | <a href="https://github.com/Ma2903">GitHub</a> | <a href="https://www.linkedin.com/in/manoela-p-44aa75259/">LinkedIn</a></p>
+    </footer>
 </body>
 </html>
