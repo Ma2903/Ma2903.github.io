@@ -26,14 +26,7 @@ Este projeto foi desenvolvido para apresentar de forma clara e interativa os pro
 | CSS3             | Avançado      |  
 | JavaScript       | Intermediário |  
 | Node.js          | Básico        |  
-
-## Projetos  
-
-### 1. [Nome do Projeto 1](https://github.com/seu-usuario/projeto1)  
-Descrição breve do que é o projeto e suas funcionalidades.  
-
-### 2. [Nome do Projeto 2](https://github.com/seu-usuario/projeto2)  
-Descrição breve do que é o projeto e suas funcionalidades.  
+ 
 
 ## Como Usar  
 
