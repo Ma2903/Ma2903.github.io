@@ -13,34 +13,90 @@
             <h1>Manu</h1>
             <nav>
                 <ul class="is-flex is-justify-content-center is-align-items-center">
-                    <li><a class="button is-light" href="#sobre">Sobre Mim</a></li>
-                    <li><a class="button is-light" href="#portfolio">Portfólio</a></li>
-                    <li><a class="button is-light" href="#contato">Contato</a></li>
+                    <li><a class="button" href="#sobre">Sobre Mim</a></li>
+                    <li><a class="button" href="#portfolio">Portfólio</a></li>
+                    <li><a class="button" href="#contato">Contato</a></li>
                     <li><a id="toggle-theme" class="button is-light">🌙</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="sobre">
-        <h2>Sobre Mim</h2>
-        <p>Olá! Sou Manu, estudante de Análise e Desenvolvimento de Sistemas, apaixonado por desenvolvimento front-end. Tenho experiência na criação de interfaces modernas e responsivas, utilizando tecnologias como HTML, CSS, JavaScript, PHP e SQL. Atualmente, estou aprimorando minhas habilidades e trabalhando em projetos como um sistema de aluguel de livros online e um sistema financeiro para lojas de roupas. Meu objetivo é desenvolver soluções inovadoras que tornem a experiência do usuário mais intuitiva e eficiente.</p>
+    <section id="sobre" class="section">
+        <div class="container">
+            <h2 class="title is-3">Sobre Mim</h2>
+            <div class="columns is-vcentered">
+                <div class="column is-one-third">
+                    <figure class="image is-128x128">
+                        <img src="img/eu.jpeg" alt="Foto de Manu" class="foto-sobre">
+                    </figure>
+                </div>
+                <div class="column">
+                    <div class="content">
+                        <p>Olá! Sou Manu, estudante de Análise e Desenvolvimento de Sistemas, apaixonada por desenvolvimento front-end. 
+                        Tenho experiência na criação de interfaces modernas, utilizando tecnologias como HTML, CSS, JavaScript, PHP e SQL. 
+                        Atualmente, estou aprimorando minhas habilidades e trabalhando em projetos como o anuario da minha turma.
+                        Meu objetivo é desenvolver soluções inovadoras que tornem a experiência do usuário mais intuitiva e eficiente.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="portfolio">
-        <h2>Portfólio</h2>
-        <div id="projetos"></div>
-    </section>
+<section id="portfolio" class="section">
+    <div class="container">
+        <h2 class="title is-3">Portfólio</h2>
+        <div id="projetos" class="columns is-multiline">
+            <!-- Adicione seus projetos aqui -->
+            <div class="column is-one-third">
+                <div class="card project">
+                    <div class="card-content">
+                        <p class="title">Projeto 1</p>
+                        <p class="subtitle">Descrição do Projeto 1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-third">
+                <div class="card project">
+                    <div class="card-content">
+                        <p class="title">Projeto 2</p>
+                        <p class="subtitle">Descrição do Projeto 2</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Adicione mais projetos conforme necessário -->
+        </div>
+    </div>
+</section>
 
-    <section id="contato">
-        <h2>Contato</h2>
+<section id="contato" class="section">
+    <div class="container">
+        <h2 class="title is-3">Contato</h2>
         <form>
-            <input type="text" placeholder="Nome" required>
-            <input type="email" placeholder="E-mail" required>
-            <textarea placeholder="Mensagem" required></textarea>
-            <button type="submit">Enviar</button>
+            <div class="field">
+                <label class="label">Nome</label>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Nome" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">E-mail</label>
+                <div class="control">
+                    <input class="input" type="email" placeholder="E-mail" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Mensagem</label>
+                <div class="control">
+                    <textarea class="textarea" placeholder="Mensagem" required></textarea>
+                </div>
+            </div>
+            <div class="control">
+                <button class="button is-primary" type="submit">Enviar</button>
+            </div>
         </form>
-    </section>
+    </div>
+</section>
 
     <footer>
         <p>&copy; 2025 Manu | <a href="https://github.com/Ma2903">GitHub</a> | <a href="https://www.linkedin.com/in/manoela-p-44aa75259/">LinkedIn</a></p>
