@@ -50,3 +50,22 @@ document.addEventListener("DOMContentLoaded", function () {
     // Carregar projetos do GitHub
     loadProjects();
 });
+
+//menu hamburguer
+document.addEventListener("DOMContentLoaded", function () {
+    const backToTopButton = document.querySelector('.back-to-top');
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+
+    menuToggle.addEventListener('click', () => {
+        menu.classList.toggle('active');
+    });
+});
