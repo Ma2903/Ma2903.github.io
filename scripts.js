@@ -69,3 +69,23 @@ document.addEventListener("DOMContentLoaded", function () {
         menu.classList.toggle('active');
     });
 });
+
+ // Formspree form submission
+ const form = document.querySelector('form');
+ form.addEventListener('submit', async (e) => {
+     e.preventDefault();
+     const formData = new FormData(form);
+     const response = await fetch(form.action, {
+         method: form.method,
+         body: formData,
+         headers: {
+             'Accept': 'application/json'
+         }
+     });
+     if (response.ok) {
+         form.reset();
+         alert('Mensagem enviada com sucesso!');
+     } else {
+         alert('Ocorreu um erro ao enviar sua mensagem. Tente novamente.');
+     }
+ });
