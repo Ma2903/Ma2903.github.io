@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio de Manu, desenvolvedora front-end e estudante de Análise e Desenvolvimento de Sistemas.">
+    <meta name="keywords" content="Portfólio, Desenvolvimento Web, Front-end, HTML, CSS, JavaScript, PHP, SQL">
+    <meta name="author" content="Manu">
     <title>Portfólio - Manu</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="scripts.js"></script>
@@ -12,6 +15,11 @@
         <div class="header-container">
             <h1>Manu</h1>
             <nav>
+                <div class="menu-toggle" id="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
                 <ul class="is-flex is-justify-content-center is-align-items-center">
                     <li><a class="button" href="#sobre">Sobre Mim</a></li>
                     <li><a class="button" href="#portfolio">Portfólio</a></li>
@@ -24,82 +32,82 @@
 
     <section id="sobre" class="section">
         <div class="container">
-            <h2 class="title is-3">Sobre Mim</h2>
+            <h2 id="title-is-3" class="title is-3">Sobre Mim</h2>
             <div class="columns is-vcentered">
                 <div class="column is-one-third">
-                    <figure class="image is-128x128">
+                    <figure class="image is-square">
                         <img src="img/eu.jpeg" alt="Foto de Manu" class="foto-sobre">
                     </figure>
                 </div>
-                <div class="column">
+                <div class="column is-two-thirds">
                     <div class="content">
-                        <p>Olá! Sou Manu, estudante de Análise e Desenvolvimento de Sistemas, apaixonada por desenvolvimento front-end. 
-                        Tenho experiência na criação de interfaces modernas, utilizando tecnologias como HTML, CSS, JavaScript, PHP e SQL. 
-                        Atualmente, estou aprimorando minhas habilidades e trabalhando em projetos como o anuario da minha turma.
-                        Meu objetivo é desenvolver soluções inovadoras que tornem a experiência do usuário mais intuitiva e eficiente.</p>
+                        <p class="is-size-4">Olá! 👋 Sou Manu, uma entusiasta de desenvolvimento front-end e estudante de Análise e Desenvolvimento de Sistemas. 💻 Tenho paixão por criar interfaces modernas e funcionais, utilizando tecnologias como HTML, CSS, JavaScript, PHP e SQL. Atualmente, estou focada em aprimorar minhas habilidades e trabalhando em projetos desafiadores, como o anuário da minha turma. 📚 Meu objetivo é desenvolver soluções inovadoras que proporcionem uma experiência de usuário intuitiva e eficiente. 🚀</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-<section id="portfolio" class="section">
-    <div class="container">
-        <h2 class="title is-3">Portfólio</h2>
-        <div id="projetos" class="columns is-multiline">
-            <!-- Adicione seus projetos aqui -->
-            <div class="column is-one-third">
-                <div class="card project">
-                    <div class="card-content">
-                        <p class="title">Projeto 1</p>
-                        <p class="subtitle">Descrição do Projeto 1</p>
+    <section id="portfolio" class="section">
+        <div class="container">
+            <h2 id="title-is-3" class="title is-3">Portfólio</h2>
+            <div id="projetos" class="columns is-multiline">
+                <!-- Adicione seus projetos aqui -->
+                <div class="column is-one-third">
+                    <div class="card project">
+                        <div class="card-content">
+                            <p class="title">Projeto 1</p>
+                            <p class="subtitle">Uma descrição detalhada do Projeto 1, destacando suas funcionalidades e tecnologias utilizadas. 🌟</p>
+                            <a href="https://github.com/Ma2903/projeto1" target="_blank" class="button is-link">Ver no GitHub</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="column is-one-third">
-                <div class="card project">
-                    <div class="card-content">
-                        <p class="title">Projeto 2</p>
-                        <p class="subtitle">Descrição do Projeto 2</p>
+                <div class="column is-one-third">
+                    <div class="card project">
+                        <div class="card-content">
+                            <p class="title">Projeto 2</p>
+                            <p class="subtitle">Uma descrição detalhada do Projeto 2, destacando suas funcionalidades e tecnologias utilizadas. 🌟</p>
+                            <a href="https://github.com/Ma2903/projeto2" target="_blank" class="button is-link">Ver no GitHub</a>
+                        </div>
                     </div>
                 </div>
+                <!-- Adicione mais projetos conforme necessário -->
             </div>
-            <!-- Adicione mais projetos conforme necessário -->
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="contato" class="section">
-    <div class="container">
-        <h2 class="title is-3">Contato</h2>
-        <form>
-            <div class="field">
-                <label class="label">Nome</label>
-                <div class="control">
-                    <input class="input" type="text" placeholder="Nome" required>
+    <section id="contato" class="section">
+        <div class="container">
+            <h2 id="title-is-3" class="title is-3">Contato</h2>
+            <form>
+                <div class="field">
+                    <label id="title-is-3" class="label">Nome</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Seu nome" required>
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <label class="label">E-mail</label>
-                <div class="control">
-                    <input class="input" type="email" placeholder="E-mail" required>
+                <div class="field">
+                    <label id="title-is-3" class="label">E-mail</label>
+                    <div class="control">
+                        <input class="input" type="email" placeholder="Seu e-mail" required>
+                    </div>
                 </div>
-            </div>
-            <div class="field">
-                <label class="label">Mensagem</label>
-                <div class="control">
-                    <textarea class="textarea" placeholder="Mensagem" required></textarea>
+                <div class="field">
+                    <label id="title-is-3" class="label">Mensagem</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="Sua mensagem" required></textarea>
+                    </div>
                 </div>
-            </div>
-            <div class="control">
-                <button class="button is-primary" type="submit">Enviar</button>
-            </div>
-        </form>
-    </div>
-</section>
+                <div class="control">
+                    <button class="button is-primary" type="submit">Enviar</button>
+                </div>
+            </form>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2025 Manu | <a href="https://github.com/Ma2903">GitHub</a> | <a href="https://www.linkedin.com/in/manoela-p-44aa75259/">LinkedIn</a></p>
     </footer>
+
 </body>
 </html>
