@@ -24,6 +24,7 @@
                 <ul class="is-flex is-justify-content-center is-align-items-center">
                     <li><a class="button" href="#sobre">Sobre Mim</a></li>
                     <li><a class="button" href="#portfolio">Portfólio</a></li>
+                    <li><a class="button" href="#habilidades">Habilidades</a></li>
                     <li><a class="button" href="#certificados">Certificados</a></li>
                     <li><a class="button" href="#contato">Contato</a></li>
                     <li><a id="toggle-theme" class="button is-light">🌙</a></li>
@@ -64,16 +65,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="column is-one-third">
-                    <div class="card project">
-                        <div class="card-content">
-                            <p class="title">Projeto 2</p>
-                            <p class="subtitle">Uma descrição detalhada do Projeto 2, destacando suas funcionalidades e tecnologias utilizadas. 🌟</p>
-                            <a href="https://github.com/Ma2903/projeto2" target="_blank" class="button is-link">Ver no GitHub</a>
-                        </div>
-                    </div>
+                <div id="projetos" class="columns is-multiline">
+                    <p class="has-text-centered">Em breve, novos projetos!</p>
                 </div>
-                <!-- Adicione mais projetos conforme necessário -->
             </div>
         </div>
     </section>
@@ -111,7 +105,7 @@
         </div>
     </section>
 
-    <section id="certificados" class="section">
+    <!-- <section id="certificados" class="section">
         <div class="container">
             <h2 id="title-is-3" class="title is-3">Certificados</h2>
             <div class="columns is-multiline">
@@ -136,12 +130,12 @@
                 <!-- Adicione mais certificados conforme necessário -->
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section id="contato" class="section">
         <div class="container">
             <h2 id="title-is-3" class="title is-3">Contato</h2>
-            <form action="https://formspree.io/f/xgvwzygo" method="POST">
+            <form action="https://formspree.io/f/xgvwzygo" method="POST" novalidate>
                 <div class="field">
                     <label id="title-is-3" class="label">Nome</label>
                     <div class="control">
@@ -171,7 +165,9 @@
         <p>&copy; 2025 Manu | <a href="https://github.com/Ma2903">GitHub</a> | <a href="https://www.linkedin.com/in/manoela-p-44aa75259/">LinkedIn</a></p>
     </footer>
 
-    <!-- <a href="#" class="back-to-top">⬆️</a> -->
+    <a href="#" id="back-to-top" class="back-to-top">
+        ⬆️
+    </a>    
 
 </body>
 </html>
