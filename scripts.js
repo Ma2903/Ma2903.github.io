@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     function loadProjects() {
         const projectList = document.getElementById('projetos');
         const apiUrl = 'https://api.github.com/users/Ma2903/repos';
+        const repositories = [
+            "APAE", "Oficina-ETEC", "Engenharia-Codigo", "Arquitetura-MVP", "Projeto-Calculadora-Final", "Loja-de-Avatares-e-Skins-para-Programadores"
+        ];
 
         fetch(apiUrl)
             .then(response => {
@@ -14,16 +17,24 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 projectList.innerHTML = '';
                 data.forEach(repo => {
-                    const projectElement = document.createElement('article');
-                    projectElement.classList.add('project');
+                    if (repositories.includes(repo.name)) {
+                        const projectElement = document.createElement('div');
+                        projectElement.classList.add('column');
 
-                    projectElement.innerHTML = `
-                        <h3>${repo.name}</h3>
-                        <p>${repo.description || 'Sem descrição'}</p>
-                        <a href="${repo.html_url}" target="_blank">Ver no GitHub</a>
-                    `;
+                        projectElement.innerHTML = `
+                       <div class="card project">
+                            <div class="card-content">
+                                <h3>${repo.name}</h3>
+                                <p>${repo.description || 'Sem descrição'}</p>
+                                </div>
+                            <footer class="card-footer">
+                                <a href="${repo.html_url}" target="_blank" class="card-footer-item">Ver no GitHub</a>
+                            </footer>
+                        </div>
+                        `;
                     
-                    projectList.appendChild(projectElement);
+                        projectList.appendChild(projectElement);
+                    }
                 });
             })
             .catch(error => {
@@ -49,25 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Carregar projetos do GitHub
     loadProjects();
-});
-
-//menu hamburguer
-document.addEventListener("DOMContentLoaded", function () {
-    const backToTopButton = document.querySelector('.back-to-top');
-    const menuToggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('menu');
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTopButton.style.display = 'block';
-        } else {
-            backToTopButton.style.display = 'none';
-        }
-    });
-
-    menuToggle.addEventListener('click', () => {
-        menu.classList.toggle('active');
-    });
 });
 
  // Formspree form submission
@@ -107,4 +99,50 @@ document.addEventListener("DOMContentLoaded", function () {
     sections.forEach(section => {
         observer.observe(section);
     });
+});
+
+document.querySelector("form").addEventListener("submit", function (event) {
+    let name = document.querySelector("[name='name']").value;
+    let email = document.querySelector("[name='email']").value;
+    if (!name || !email) {
+        alert("Por favor, preencha todos os campos.");
+        event.preventDefault();
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const backToTopButton = document.getElementById("back-to-top");
+
+    // Mostrar ou ocultar o botão ao rolar a página
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            backToTopButton.classList.add("show");
+        } else {
+            backToTopButton.classList.remove("show");
+        }
+    });
+
+    // Rolar suavemente até o topo ao clicar no botão
+    backToTopButton.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+    // Atualizar cor da seta ao mudar o tema
+    const updateButtonColor = () => {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        backToTopButton.style.background = currentTheme === "dark" ? "var(--secondary-color)" : "var(--primary-color)";
+        backToTopButton.style.color = currentTheme === "dark" ? "black" : "white";
+    };
+
+    // Detectar mudança de tema e atualizar botão
+    document.getElementById("toggle-theme").addEventListener("click", function () {
+        setTimeout(updateButtonColor, 100); // Pequeno delay para garantir a atualização
+    });
+
+    // Aplicar a cor correta no carregamento da página
+    updateButtonColor();
 });
