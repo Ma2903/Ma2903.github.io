@@ -150,3 +150,34 @@ document.addEventListener("DOMContentLoaded", function () {
     // Aplicar a cor correta no carregamento da página
     updateButtonColor();
 });
+
+// Abrir modal e remover blur das imagens de certificados ao clicar no botão "Ver Certificado"
+document.querySelectorAll('.ver-certificado').forEach(button => {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        const certificadoSrc = this.getAttribute('data-certificado');
+        const imgSrc = this.getAttribute('data-certificado');
+        const modal = document.getElementById('certificadoModal');
+        const modalImg = document.getElementById('certificadoModalImg');
+        const modalPdf = document.getElementById('certificadoModalPdf');
+
+        if (certificadoSrc.endsWith('.pdf')) {
+            modalImg.style.display = 'none';
+            modalPdf.style.display = 'block';
+            modalPdf.src = certificadoSrc;
+        } else {
+            modalImg.style.display = 'block';
+            modalPdf.style.display = 'none';
+            modalImg.src = certificadoSrc;
+        }
+        modal.classList.add('is-active');
+    });
+});
+
+// Fechar modal
+document.querySelectorAll('.modal-close, .modal-background').forEach(element => {
+    element.addEventListener('click', function() {
+        const modal = document.getElementById('certificadoModal');
+        modal.classList.remove('is-active');
+    });
+});

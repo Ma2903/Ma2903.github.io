@@ -34,7 +34,6 @@ body {
     color: var(--text-color);
     margin: 0;
     padding: 0;
-    transition: all 0.3s ease;
 }
 
 header {
@@ -218,6 +217,114 @@ nav ul li a:hover {
 .button:hover {
     background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para a seção de currículo */
+#curriculo {
+    background: var(--card-bg);
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px var(--shadow-color);
+    margin-top: 20px;
+    text-align: center;
+}
+
+#curriculo h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+#curriculo p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+#curriculo .btn-download {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#curriculo .btn-download:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos para a seção de certificados */
+#certificados {
+    padding: 40px 20px;
+    margin-top: 20px;
+}
+
+#certificados .card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 20px; /* Adiciona espaçamento entre os cartões */
+}
+
+#certificados .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 15px var(--shadow-color);
+}
+
+#certificados .card-content {
+    padding: 20px;
+}
+
+#certificados .title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+#certificados .subtitle {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+#certificados .button {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+#certificados .button:hover {
+    background: var(--secondary-color);
+}
+
+.certificado-img {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+    width: 50%;
+    height: auto;
+}
+
+.modal .modal-content {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal .modal-content img, .modal .modal-content iframe {
+    width: 100%;
+    height: auto;
+}
+
+.modal.is-active .modal-background {
+    background-color: rgba(10, 10, 10, 0.86);
 }
 
 footer {

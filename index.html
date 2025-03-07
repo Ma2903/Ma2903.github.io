@@ -23,6 +23,7 @@
                     <li><a class="button" href="#sobre">Sobre Mim</a></li>
                     <li><a class="button" href="#portfolio">Portfólio</a></li>
                     <li><a class="button" href="#habilidades">Habilidades</a></li>
+                    <li><a class="button" href="#curriculo">Currículo</a></li>
                     <li><a class="button" href="#certificados">Certificados</a></li>
                     <li><a class="button" href="#contato">Contato</a></li>
                     <li><a id="toggle-theme" class="button is-light">🌙</a></li>
@@ -37,7 +38,7 @@
             <div class="columns is-vcentered">
                 <div class="column is-one-third">
                     <figure class="image is-square">
-                        <img src="img/eu.jpeg" alt="Foto de Manu" class="foto-sobre">
+                        <img src="src/img/eu.jpeg" alt="Foto de Manu" class="foto-sobre">
                     </figure>
                 </div>
                 <div class="column is-two-thirds">
@@ -49,26 +50,46 @@
         </div>
     </section>
 
+     <!-- Projetos com filtro -->
+  <!-- <section id="projetos" class="section"> -->
+    <!-- <div class="container">
+      <h2>Projetos</h2>
+      <div class="project-filters">
+        <button class="filter-btn" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="javascript">JavaScript</button>
+        <button class="filter-btn" data-filter="php">PHP</button>
+        <button class="filter-btn" data-filter="sql">SQL</button>
+      </div> -->
     <section id="portfolio" class="section">
         <div class="container">
             <h2 id="title-is-3" class="title is-3">Portfólio</h2>
             <div id="projetos" class="columns is-multiline">
                 <!-- Adicione seus projetos aqui -->
-                <div class="column is-one-third">
-                    <div class="card project">
-                        <div class="card-content">
-                            <p class="title">Projeto 1</p>
-                            <p class="subtitle">Uma descrição detalhada do Projeto 1, destacando suas funcionalidades e tecnologias utilizadas. 🌟</p>
-                            <a href="https://github.com/Ma2903/projeto1" target="_blank" class="button is-link">Ver no GitHub</a>
-                        </div>
-                    </div>
-                </div>
                 <div id="projetos" class="columns is-multiline">
                     <p class="has-text-centered">Em breve, novos projetos!</p>
                 </div>
             </div>
         </div>
     </section>
+
+     <!-- Modal para projetos -->
+  <!-- <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div id="modalBody">
+        <!-- Conteúdo dinâmico do projeto será inserido aqui
+      </div>
+    </div>
+  </div> -->
+
+    <!-- Currículo -->
+    <section id="curriculo" class="section">
+        <div class="container">
+          <h2 id="title-is-3" class="title is-3">Currículo</h2>
+          <p>Baixe meu currículo para conhecer mais sobre minha experiência e habilidades.</p>
+          <a href="src/currículo Manoela Pinheiro da Silva.pdf" download class="btn-download">Download do Currículo</a>
+        </div>
+      </section>
 
     <section id="habilidades" class="section">
         <div class="container">
@@ -103,25 +124,36 @@
         </div>
     </section>
 
-    <!-- <section id="certificados" class="section">
+    <section id="certificados" class="section">
         <div class="container">
             <h2 id="title-is-3" class="title is-3">Certificados</h2>
             <div class="columns is-multiline">
                 <div class="column is-one-third">
                     <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img src="src/img/Certificado_CCAA.jpg" alt="Certificado de Proficiência em Inglês" class="certificado-img">
+                                </figure>
+                            </div>
                         <div class="card-content">
-                            <p class="title">Certificado 1</p>
-                            <p class="subtitle">Descrição do Certificado 1</p>
-                            <a href="link_para_certificado_1" target="_blank" class="button is-link">Ver Certificado</a>
+                            <p class="title">Certificado de Proficiência em Inglês</p>
+                            <p class="subtitle">Curso de Inglês Avançado - CCAA</p>
+                            <a href="#" class="button is-link ver-certificado" data-certificado="src/img/Certificado_CCAA.jpg">Ver Certificado</a>
                         </div>
                     </div>
                 </div>
                 <div class="column is-one-third">
                     <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img src="src\img\Certificado MANOELA PINHEIRO DA SILVA CTC 2024.jpeg" alt="Certificado CIRCUITO TÉCNICO CIENTÍFICO 2024" class="certificado-img">
+                            </figure>
+                        </div>
                         <div class="card-content">
-                            <p class="title">Certificado 2</p>
-                            <p class="subtitle">Descrição do Certificado 2</p>
-                            <a href="link_para_certificado_2" target="_blank" class="button is-link">Ver Certificado</a>
+                            <p class="title">Certificado CIRCUITO TÉCNICO CIENTÍFICO 2024</p>
+                            <p class="subtitle">MINICURSO  “COMUNICAÇÃO  EM  TEMPO  REAL  COM  SOCKET.IO  E 
+                                NODE.JS.”</p>
+                            <a href="#" class="button is-link ver-certificado" data-certificado="src\img\Certificado MANOELA PINHEIRO DA SILVA CTC 2024.jpeg">Ver Certificado</a>
                         </div>
                     </div>
                 </div>
@@ -129,6 +161,18 @@
             </div>
         </div>
     </section>
+
+        <!-- Modal para exibir o certificado -->
+    <div id="certificadoModal" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <figure class="image is-4by3">
+                <img id="certificadoModalImg" src="" alt="Certificado">
+                <iframe id="certificadoModalPdf" src=""  style="display: none; width: 100%; height: 100%;"></iframe>
+            </figure>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
 
     <section id="contato" class="section">
         <div class="container">
@@ -160,7 +204,9 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Manu | <a href="https://github.com/Ma2903">GitHub</a> | <a href="https://www.linkedin.com/in/manoela-p-44aa75259/">LinkedIn</a></p>
+        <div class="conteiner">
+            <p>&copy; 2025 Manu. Todos os direitos reservados. | <a href="https://github.com/Ma2903">GitHub</a> | <a href="https://www.linkedin.com/in/manoela-p-44aa75259/">LinkedIn</a></p>
+        </div>
     </footer>
 
     <a href="#" id="back-to-top" class="back-to-top">
