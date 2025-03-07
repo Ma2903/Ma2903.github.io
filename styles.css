@@ -323,16 +323,29 @@ nav ul li a:hover {
     height: auto;
 }
 
+.menu-title{
+    display: none;
+}
+
 .modal.is-active .modal-background {
     background-color: rgba(10, 10, 10, 0.86);
 }
 
-footer {
+.body-footer {
     width: 100%;
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     padding: 1rem 0;
     box-shadow: 0 -4px 10px var(--shadow-color);
     position: sticky;
+    bottom: 0;
+    text-align: center;
+    z-index: 1000;
+}
+.card-footer{
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    padding: 1rem 0;
+    box-shadow: 0 -4px 10px var(--shadow-color);
     bottom: 0;
     text-align: center;
     z-index: 1000;
@@ -512,6 +525,20 @@ form .button {
         background: var(--primary-color);
         position: absolute;
         z-index: 1000;
+    }
+    .menu-title{
+        display: block;
+        position: relative;
+        color: #fff;
+    }
+    .menu-title::after{
+        position: absolute;
+        bottom : -5px;
+        left: 0;
+        content: "";
+        width: 100%;
+        height: 2px;
+        background: #fff;
     }
     nav ul {
         flex-direction: column;
