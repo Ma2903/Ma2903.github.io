@@ -507,7 +507,7 @@ form .button {
         display: block;
         top: 0;
         left: 0;
-        width: 30%;
+        width: calc(30% + 80px);
         height: 100vh;
         background: var(--primary-color);
         position: absolute;
