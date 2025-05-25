@@ -9,6 +9,7 @@
     <title>Portfólio - Manu</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <script defer src="scripts.js"></script>
 </head>
 <body>
@@ -19,180 +20,184 @@
                 <i class="fa-solid fa-bars"></i>
             </div>
             <nav>
-                <ul class="is-flex is-justify-content-center is-align-items-center">
+                <ul>
                     <li class="menu-title">Menu</li>
-                    <li><a class="button" href="#sobre">Sobre Mim</a></li>
-                    <li><a class="button" href="#portfolio">Portfólio</a></li>
-                    <li><a class="button" href="#habilidades">Habilidades</a></li>
-                    <li><a class="button" href="#curriculo">Currículo</a></li>
-                    <li><a class="button" href="#certificados">Certificados</a></li>
-                    <li><a class="button" href="#contato">Contato</a></li>
-                    <li><a id="toggle-theme" class="button is-light">🌙</a></li>
+                    <li><a href="#sobre" class="nav-link">Sobre Mim</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+                    <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                    <li><a href="#curriculo" class="nav-link">Currículo</a></li>
+                    <li><a href="#certificados" class="nav-link">Certificados</a></li>
+                    <li><a href="#contato" class="nav-link">Contato</a></li>
+                    <li><button id="toggle-theme" class="theme-toggle">🌙</button></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section id="sobre" class="section">
-        <div class="container">
-            <h2 id="title-is-3" class="title is-3">Sobre Mim</h2>
-            <div class="columns is-vcentered">
-                <div class="column is-one-third">
-                    <figure class="image is-square">
-                        <img src="src/img/eu.jpeg" alt="Foto de Manu" class="foto-sobre">
-                    </figure>
-                </div>
-                <div class="column is-two-thirds">
-                    <div class="content">
-                        <p class="is-size-4">Olá! 👋 Sou Manu, uma entusiasta de desenvolvimento front-end e estudante de Análise e Desenvolvimento de Sistemas. 💻 Tenho paixão por criar interfaces modernas e funcionais, utilizando tecnologias como HTML, CSS, JavaScript, PHP e SQL. Atualmente, estou focada em aprimorar minhas habilidades e trabalhando em projetos desafiadores, como o anuário da minha turma. 📚 Meu objetivo é desenvolver soluções inovadoras que proporcionem uma experiência de usuário intuitiva e eficiente. 🚀</p>
+    <main>
+        <section id="sobre" class="section" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title">Sobre Mim</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="src/img/eu.jpeg" alt="Foto de Manu" class="profile-image">
+                    </div>
+                    <div class="about-text">
+                        <p>Olá! 👋 Sou Manu, uma entusiasta de desenvolvimento front-end e estudante de Análise e Desenvolvimento de Sistemas.</p>
+                        <p>💻 Especializo-me em criar interfaces modernas e funcionais, utilizando:</p>
+                        <ul class="skills-list">
+                            <li><i class="fab fa-html5"></i> HTML</li>
+                            <li><i class="fab fa-css3-alt"></i> CSS</li>
+                            <li><i class="fab fa-js"></i> JavaScript</li>
+                            <li><i class="fab fa-php"></i> PHP</li>
+                            <li><i class="fas fa-database"></i> SQL</li>
+                        </ul>
+                        <p>🚀 Atualmente, estou focada em aprimorar minhas habilidades e trabalhando em projetos desafiadores.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="portfolio" class="section">
-        <div class="container">
-            <h2 id="title-is-3" class="title is-3">Portfólio</h2>
-            <div id="projetos" class="columns is-multiline">
-                <!-- Adicione seus projetos aqui -->
-                <div id="projetos" class="columns is-multiline">
-                    <p class="has-text-centered">Em breve, novos projetos!</p>
+        <section id="portfolio" class="section" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title">Portfólio</h2>
+                <div id="projetos" class="projects-grid"></div>
+            </div>
+        </section>
+
+        <section id="habilidades" class="section" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title">Habilidades</h2>
+                <div class="skills-grid">
+                    <div class="skill-card" data-aos="flip-left">
+                        <i class="fab fa-html5"></i>
+                        <h3>HTML</h3>
+                        <div class="skill-level">
+                            <div class="progress-bar" style="width: 90%"></div>
+                        </div>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-card" data-aos="flip-left" data-aos-delay="100">
+                        <i class="fab fa-css3-alt"></i>
+                        <h3>CSS</h3>
+                        <div class="skill-level">
+                            <div class="progress-bar" style="width: 85%"></div>
+                        </div>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-card" data-aos="flip-left" data-aos-delay="200">
+                        <i class="fab fa-js"></i>
+                        <h3>JavaScript</h3>
+                        <div class="skill-level">
+                            <div class="progress-bar" style="width: 80%"></div>
+                        </div>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-card" data-aos="flip-left" data-aos-delay="300">
+                        <i class="fab fa-php"></i>
+                        <h3>PHP</h3>
+                        <div class="skill-level">
+                            <div class="progress-bar" style="width: 70%"></div>
+                        </div>
+                        <span>70%</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Currículo -->
-    <section id="curriculo" class="section">
-        <div class="container">
-          <h2 id="title-is-3" class="title is-3">Currículo</h2>
-          <p>Baixe meu currículo para conhecer mais sobre minha experiência e habilidades.</p>
-          <a href="src/currículo Manoela Pinheiro da Silva.pdf" download class="btn-download">Download do Currículo</a>
-        </div>
-      </section>
-
-    <section id="habilidades" class="section">
-        <div class="container">
-            <h2 id="title-is-3" class="title is-3">Habilidades</h2>
-            <div class="columns is-multiline">
-                <div class="column is-one-quarter">
-                    <div class="box">
-                        <h3 class="title is-5"><i class="fab fa-html5"></i> HTML</h3>
-                        <progress class="progress is-primary" value="90" max="100">90%</progress>
-                    </div>
+        <section id="curriculo" class="section" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title">Currículo</h2>
+                <div class="resume-content">
+                    <p>Baixe meu currículo para conhecer mais sobre minha experiência e habilidades.</p>
+                    <a href="src/currículo Manoela Pinheiro da Silva.pdf" download class="download-button">
+                        <i class="fas fa-download"></i> Download do Currículo
+                    </a>
                 </div>
-                <div class="column is-one-quarter">
-                    <div class="box">
-                        <h3 class="title is-5"><i class="fab fa-css3-alt"></i> CSS</h3>
-                        <progress class="progress is-primary" value="85" max="100">85%</progress>
-                    </div>
-                </div>
-                <div class="column is-one-quarter">
-                    <div class="box">
-                        <h3 class="title is-5"><i class="fab fa-js"></i> JavaScript</h3>
-                        <progress class="progress is-primary" value="80" max="100">80%</progress>
-                    </div>
-                </div>
-                <div class="column is-one-quarter">
-                    <div class="box">
-                        <h3 class="title is-5"><i class="fab fa-php"></i> PHP</h3>
-                        <progress class="progress is-primary" value="70" max="100">70%</progress>
-                    </div>
-                </div>
-                <!-- Adicione mais habilidades conforme necessário -->
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="certificados" class="section">
-        <div class="container">
-            <h2 id="title-is-3" class="title is-3">Certificados</h2>
-            <div class="columns is-multiline">
-                <div class="column is-one-third">
-                    <div class="card">
-                            <div class="card-image">
-                                <figure class="image is-4by3">
-                                    <img src="src/img/Certificado_CCAA.jpg" alt="Certificado de Proficiência em Inglês" class="certificado-img">
-                                </figure>
-                            </div>
-                        <div class="card-content">
-                            <p class="title">Certificado de Proficiência em Inglês</p>
-                            <p class="subtitle">Curso de Inglês Avançado - CCAA</p>
-                            <a href="#" class="button is-link ver-certificado" data-certificado="src/img/Certificado_CCAA.jpg">Ver Certificado</a>
+        <section id="certificados" class="section" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title">Certificados</h2>
+                <div class="certificates-grid">
+                    <div class="certificate-card" data-aos="zoom-in">
+                        <div class="certificate-image">
+                            <img src="src/img/Certificado_CCAA.jpg" alt="Certificado de Proficiência em Inglês">
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Certificado de Proficiência em Inglês</h3>
+                            <p>Curso de Inglês Avançado - CCAA</p>
+                            <button class="view-certificate" data-certificate="src/img/Certificado_CCAA.jpg">
+                                Ver Certificado
+                            </button>
+                        </div>
+                    </div>
+                    <div class="certificate-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="certificate-image">
+                            <img src="src/img/Certificado MANOELA PINHEIRO DA SILVA CTC 2024.jpeg" alt="Certificado CTC 2024">
+                        </div>
+                        <div class="certificate-content">
+                            <h3>Certificado CIRCUITO TÉCNICO CIENTÍFICO 2024</h3>
+                            <p>MINICURSO "COMUNICAÇÃO EM TEMPO REAL COM SOCKET.IO E NODE.JS"</p>
+                            <button class="view-certificate" data-certificate="src/img/Certificado MANOELA PINHEIRO DA SILVA CTC 2024.jpeg">
+                                Ver Certificado
+                            </button>
                         </div>
                     </div>
                 </div>
-                <div class="column is-one-third">
-                    <div class="card">
-                        <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="src\img\Certificado MANOELA PINHEIRO DA SILVA CTC 2024.jpeg" alt="Certificado CIRCUITO TÉCNICO CIENTÍFICO 2024" class="certificado-img">
-                            </figure>
-                        </div>
-                        <div class="card-content">
-                            <p class="title">Certificado CIRCUITO TÉCNICO CIENTÍFICO 2024</p>
-                            <p class="subtitle">MINICURSO  “COMUNICAÇÃO  EM  TEMPO  REAL  COM  SOCKET.IO  E 
-                                NODE.JS.”</p>
-                            <a href="#" class="button is-link ver-certificado" data-certificado="src\img\Certificado MANOELA PINHEIRO DA SILVA CTC 2024.jpeg">Ver Certificado</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Adicione mais certificados conforme necessário -->
             </div>
-        </div>
-    </section>
+        </section>
 
-        <!-- Modal para exibir o certificado -->
-    <div id="certificadoModal" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <figure class="image is-4by3">
-                <img id="certificadoModalImg" src="" alt="Certificado">
-                <iframe id="certificadoModalPdf" src=""  style="display: none; width: 100%; height: 100%;"></iframe>
-            </figure>
-        </div>
-        <button class="modal-close is-large" aria-label="close"></button>
-    </div>
+        <section id="contato" class="section" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title">Contato</h2>
+                <form id="contact-form" action="https://formspree.io/f/xgvwzygo" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">
+                        <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
 
-    <section id="contato" class="section">
+    <footer>
         <div class="container">
-            <h2 id="title-is-3" class="title is-3">Contato</h2>
-            <form action="https://formspree.io/f/xgvwzygo" method="POST" novalidate>
-                <div class="field">
-                    <label id="title-is-3" class="label">Nome</label>
-                    <div class="control">
-                        <input class="input" type="text" name="name" placeholder="Seu nome" required>
-                    </div>
-                </div>
-                <div class="field">
-                    <label id="title-is-3" class="label">E-mail</label>
-                    <div class="control">
-                        <input class="input" type="email" name="email" placeholder="Seu e-mail" required>
-                    </div>
-                </div>
-                <div class="field">
-                    <label id="title-is-3" class="label">Mensagem</label>
-                    <div class="control">
-                        <textarea class="textarea" name="message" placeholder="Sua mensagem" required></textarea>
-                    </div>
-                </div>
-                <div class="control">
-                    <button class="button is-primary" type="submit">Enviar</button>
-                </div>
-            </form>
-        </div>
-    </section>
-
-    <footer class="body-footer">
-        <div class="conteiner">
-            <p>&copy; 2025 Manu. Todos os direitos reservados. | <a href="https://github.com/Ma2903">GitHub</a> | <a href="https://www.linkedin.com/in/manoela-p-44aa75259/">LinkedIn</a></p>
+            <div class="social-links">
+                <a href="https://github.com/Ma2903" target="_blank" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" class="social-link">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+            <p>&copy; 2025 Manu. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <a href="#" id="back-to-top" class="back-to-top">
-        <i class="fa-solid fa-arrow-up"></i>
-    </a>    
+    <div id="certificate-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <img id="modal-image" src="" alt="Certificado">
+        </div>
+    </div>
 
+    <a href="#" id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 </body>
 </html>
