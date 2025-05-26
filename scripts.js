@@ -1,165 +1,183 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize AOS
-    AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 100
-    });
+document.addEventListener("DOMContentLoaded", function () {
+    // Função para carregar projetos do GitHub
+    function loadProjects() {
+        const projectList = document.getElementById('projetos');
+        const apiUrl = 'https://api.github.com/users/Ma2903/repos';
+        const repositories = [
+            "APAE", "Oficina-ETEC", "Engenharia-Codigo", "Arquitetura-MVP", "Projeto-Calculadora-Final", "Loja-de-Avatares-e-Skins-para-Programadores"
+        ];
 
-    // Theme Toggle
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                projectList.innerHTML = '';
+                data.forEach(repo => {
+                    if (repositories.includes(repo.name)) {
+                        const projectElement = document.createElement('div');
+                        projectElement.classList.add('column');
+
+                        projectElement.innerHTML = `
+                       <div class="card project">
+                            <div class="card-content">
+                                <h3>${repo.name}</h3>
+                                <p>${repo.description || 'Sem descrição'}</p>
+                                </div>
+                            <footer class="card-footer">
+                                <a href="${repo.html_url}" target="_blank" class="card-footer-item">Ver no GitHub</a>
+                            </footer>
+                        </div>
+                        `;
+                    
+                        projectList.appendChild(projectElement);
+                    }
+                });
+            })
+            .catch(error => {
+                console.error('Erro ao carregar os projetos:', error);
+            });
+    }
+
+    // Função para alternar o tema
     const toggleTheme = () => {
         const currentTheme = document.documentElement.getAttribute('data-theme');
         const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', newTheme);
+
         localStorage.setItem('theme', newTheme);
-        
-        const themeButton = document.getElementById('toggle-theme');
-        themeButton.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        document.getElementById('toggle-theme').textContent = newTheme === 'dark' ? '☀️' : '🌙';
     };
 
-    // Apply saved theme
+    // Aplicar tema salvo no localStorage
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.documentElement.setAttribute('data-theme', savedTheme);
     document.getElementById('toggle-theme').textContent = savedTheme === 'dark' ? '☀️' : '🌙';
     document.getElementById('toggle-theme').addEventListener('click', toggleTheme);
 
-    // Load GitHub Projects
-    const loadProjects = async () => {
-        const projectsContainer = document.getElementById('projetos');
-        const repositories = [
-            "APAE", "Oficina-ETEC", "Engenharia-Codigo", "Arquitetura-MVP",
-            "Projeto-Calculadora-Final", "Loja-de-Avatares-e-Skins-para-Programadores"
-        ];
+    // Carregar projetos do GitHub
+    loadProjects();
+});
 
-        try {
-            const response = await fetch('https://api.github.com/users/Ma2903/repos');
-            const data = await response.json();
-
-            projectsContainer.innerHTML = '';
-            data.forEach(repo => {
-                if (repositories.includes(repo.name)) {
-                    const projectCard = document.createElement('div');
-                    projectCard.className = 'project-card';
-                    projectCard.setAttribute('data-aos', 'fade-up');
-                    
-                    projectCard.innerHTML = `
-                        <div class="project-content">
-                            <h3>${repo.name}</h3>
-                            <p>${repo.description || 'Sem descrição disponível'}</p>
-                            <div class="project-links">
-                                <a href="${repo.html_url}" target="_blank" class="project-link">
-                                    <i class="fab fa-github"></i> Ver no GitHub
-                                </a>
-                            </div>
-                        </div>
-                    `;
-                    
-                    projectsContainer.appendChild(projectCard);
-                }
-            });
-        } catch (error) {
-            console.error('Erro ao carregar projetos:', error);
-            projectsContainer.innerHTML = '<p class="error-message">Erro ao carregar os projetos. Por favor, tente novamente mais tarde.</p>';
+ // Formspree form submission
+const form = document.querySelector('form');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
         }
-    };
+    });
+    if (response.ok) {
+        form.reset();
+        alert('Mensagem enviada com sucesso!');
+    } else {
+        alert('Ocorreu um erro ao enviar sua mensagem. Tente novamente.');
+    }
+});
 
-    // Contact Form
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        try {
-            const formData = new FormData(form);
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
+document.querySelector(".header-button").addEventListener("click", function () {
+    document.querySelector(".header-container nav").classList.toggle("show");
+})
 
-            if (response.ok) {
-                form.reset();
-                alert('Mensagem enviada com sucesso!');
-            } else {
-                throw new Error('Erro ao enviar mensagem');
+ // Adicione animações de rolagem
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll('.section');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
             }
-        } catch (error) {
-            alert('Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente.');
-        }
-    });
-
-    // Certificate Modal
-    const modal = document.getElementById('certificate-modal');
-    const modalImg = document.getElementById('modal-image');
-    const closeModal = document.querySelector('.close-modal');
-
-    document.querySelectorAll('.view-certificate').forEach(button => {
-        button.addEventListener('click', () => {
-            const certificateUrl = button.getAttribute('data-certificate');
-            modalImg.src = certificateUrl;
-            modal.style.display = 'block';
         });
+    }, {
+        threshold: 0.1
     });
 
-    closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
+    sections.forEach(section => {
+        observer.observe(section);
     });
+});
 
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-        }
-    });
+document.querySelector("form").addEventListener("submit", function (event) {
+    let name = document.querySelector("[name='name']").value;
+    let email = document.querySelector("[name='email']").value;
+    if (!name || !email) {
+        alert("Por favor, preencha todos os campos.");
+        event.preventDefault();
+    }
+});
 
-    // Back to Top Button
-    const backToTop = document.getElementById('back-to-top');
-    
-    window.addEventListener('scroll', () => {
+document.addEventListener("DOMContentLoaded", function () {
+    const backToTopButton = document.getElementById("back-to-top");
+
+    // Mostrar ou ocultar o botão ao rolar a página
+    window.addEventListener("scroll", () => {
         if (window.scrollY > 300) {
-            backToTop.classList.add('visible');
+            backToTopButton.classList.add("show");
         } else {
-            backToTop.classList.remove('visible');
+            backToTopButton.classList.remove("show");
         }
     });
 
-    backToTop.addEventListener('click', (e) => {
+    // Rolar suavemente até o topo ao clicar no botão
+    backToTopButton.addEventListener("click", function (e) {
         e.preventDefault();
         window.scrollTo({
             top: 0,
-            behavior: 'smooth'
+            behavior: "smooth"
         });
     });
 
-    // Smooth Scroll for Navigation Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+    // Atualizar cor da seta ao mudar o tema
+    const updateButtonColor = () => {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        backToTopButton.style.background = currentTheme === "dark" ? "var(--secondary-color)" : "var(--primary-color)";
+        backToTopButton.style.color = currentTheme === "dark" ? "black" : "white";
+    };
+
+    // Detectar mudança de tema e atualizar botão
+    document.getElementById("toggle-theme").addEventListener("click", function () {
+        setTimeout(updateButtonColor, 100); // Pequeno delay para garantir a atualização
     });
 
-    // Mobile Menu
-    const menuButton = document.querySelector('.header-button');
-    const nav = document.querySelector('nav');
-    
-    menuButton.addEventListener('click', () => {
-        nav.classList.toggle('show');
-    });
+    // Aplicar a cor correta no carregamento da página
+    updateButtonColor();
+});
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!nav.contains(e.target) && !menuButton.contains(e.target)) {
-            nav.classList.remove('show');
+// Abrir modal e remover blur das imagens de certificados ao clicar no botão "Ver Certificado"
+document.querySelectorAll('.ver-certificado').forEach(button => {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        const certificadoSrc = this.getAttribute('data-certificado');
+        const imgSrc = this.getAttribute('data-certificado');
+        const modal = document.getElementById('certificadoModal');
+        const modalImg = document.getElementById('certificadoModalImg');
+        const modalPdf = document.getElementById('certificadoModalPdf');
+
+        if (certificadoSrc.endsWith('.pdf')) {
+            modalImg.style.display = 'none';
+            modalPdf.style.display = 'block';
+            modalPdf.src = certificadoSrc;
+        } else {
+            modalImg.style.display = 'block';
+            modalPdf.style.display = 'none';
+            modalImg.src = certificadoSrc;
         }
+        modal.classList.add('is-active');
     });
+});
 
-    // Initialize
-    loadProjects();
+// Fechar modal
+document.querySelectorAll('.modal-close, .modal-background').forEach(element => {
+    element.addEventListener('click', function() {
+        const modal = document.getElementById('certificadoModal');
+        modal.classList.remove('is-active');
+    });
 });
