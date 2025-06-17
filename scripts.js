@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeNavigation();
     initializeSkillBars();
     initializeProjects();
+    initializeProjectFilters();
     initializeContactForm();
     setCurrentYear();
     initializeScrollAnimations();
@@ -55,6 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Header scroll effect
 function initializeHeader() {
+    if (!header) return;
     window.addEventListener('scroll', function() {
         if (window.scrollY > 20) {
             header.classList.add('scrolled');
@@ -66,14 +68,12 @@ function initializeHeader() {
 
 // Navigation functionality
 function initializeNavigation() {
-    // Mobile menu toggle
-    if(navToggle) {
+    if (navToggle && navMenu) {
         navToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
         });
     }
 
-    // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -81,7 +81,7 @@ function initializeNavigation() {
             const targetId = this.getAttribute('href');
             if (targetId && targetId.startsWith('#')) {
                 scrollToSection(targetId.substring(1));
-                if(navMenu.classList.contains('active')){
+                if (navMenu && navMenu.classList.contains('active')) {
                     navMenu.classList.remove('active');
                 }
             }
@@ -93,7 +93,7 @@ function initializeNavigation() {
 function scrollToSection(sectionId) {
     const element = document.getElementById(sectionId);
     if (element) {
-        const headerHeight = header.offsetHeight;
+        let headerHeight = header ? header.offsetHeight : 0;
         const elementPosition = element.offsetTop - headerHeight;
         
         window.scrollTo({
@@ -116,33 +116,33 @@ function initializeSkillBars() {
     const skillsSection = document.getElementById('skills');
     if (!skillsSection) return;
 
-    const animateSkillBars = (entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const skillBars = skillsSection.querySelectorAll('.skill-progress');
-                skillBars.forEach(bar => {
-                    const width = bar.getAttribute('data-width');
-                    bar.style.width = width + '%';
-                });
+                const skillBars = entry.target.querySelectorAll('.skill-progress');
+                setTimeout(() => {
+                    skillBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        bar.style.width = width + '%';
+                    });
+                }, 200); // Pequeno delay para garantir a renderização
                 observer.unobserve(entry.target);
             }
         });
-    };
+    }, { threshold: 0.2 });
 
-    const observer = new IntersectionObserver(animateSkillBars, { threshold: 0.5 });
     observer.observe(skillsSection);
 }
 
 // Initialize projects
 function initializeProjects() {
-    if(!projectsGrid) return;
+    if (!projectsGrid) return;
     renderProjects(projects);
 }
 
 // Render projects
 function renderProjects(projectsToRender) {
     projectsGrid.innerHTML = '';
-    
     projectsToRender.forEach(project => {
         const projectCard = createProjectCard(project);
         projectsGrid.appendChild(projectCard);
@@ -157,10 +157,10 @@ function createProjectCard(project) {
     
     card.innerHTML = `
         <div class="project-image">
-            <img src="${project.image}" alt="${project.title}">
+            <img src="${project.image}" alt="${project.title}" loading="lazy">
             <div class="project-overlay"></div>
             <div class="project-links">
-                <a href="${project.githubUrl}" class="project-link" target="_blank" title="Ver no GitHub">
+                <a href="${project.githubUrl}" class="project-link" target="_blank" title="Ver no GitHub" aria-label="Ver ${project.title} no GitHub">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                     </svg>
@@ -179,6 +179,39 @@ function createProjectCard(project) {
     return card;
 }
 
+// Initialize project filters
+function initializeProjectFilters() {
+    const filterButtons = document.querySelectorAll('.project-filters .filter-btn');
+    if (filterButtons.length === 0) return;
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+            
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            filterProjects(filter);
+        });
+    });
+}
+
+// Filter projects logic
+function filterProjects(filter) {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const shouldShow = filter === 'all' || category === filter;
+        
+        if (shouldShow) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
 // Initialize contact form with AJAX submission for Formspree
 function initializeContactForm() {
     if (!contactForm) return;
@@ -193,9 +226,7 @@ function initializeContactForm() {
         fetch(action, {
             method: 'POST',
             body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
+            headers: { 'Accept': 'application/json' }
         }).then(response => {
             if (response.ok) {
                 Swal.fire({
@@ -207,28 +238,19 @@ function initializeContactForm() {
                 form.reset();
             } else {
                 response.json().then(data => {
-                    if (Object.hasOwn(data, 'errors')) {
-                        const errorText = data["errors"].map(error => error["message"]).join(", ");
-                        Swal.fire({
-                            title: 'Erro!',
-                            text: 'Ocorreu um problema: ' + errorText,
-                            icon: 'error',
-                            confirmButtonColor: '#3b82f6'
-                        });
-                    } else {
-                        Swal.fire({
-                            title: 'Erro!',
-                            text: 'Não foi possível enviar sua mensagem.',
-                            icon: 'error',
-                            confirmButtonColor: '#3b82f6'
-                        });
-                    }
+                    const errorText = data.errors ? data.errors.map(err => err.message).join(', ') : 'Ocorreu um problema.';
+                    Swal.fire({
+                        title: 'Erro!',
+                        text: errorText,
+                        icon: 'error',
+                        confirmButtonColor: '#3b82f6'
+                    });
                 })
             }
-        }).catch(error => {
+        }).catch(() => {
             Swal.fire({
-                title: 'Erro!',
-                text: 'Não foi possível enviar sua mensagem.',
+                title: 'Erro de Conexão!',
+                text: 'Não foi possível enviar sua mensagem. Verifique sua internet.',
                 icon: 'error',
                 confirmButtonColor: '#3b82f6'
             });
@@ -248,11 +270,6 @@ function initializeScrollAnimations() {
     const animatedElements = document.querySelectorAll('.card, .project-card, .stat-card, .skill-category');
     if (animatedElements.length === 0) return;
 
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -261,7 +278,7 @@ function initializeScrollAnimations() {
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
     animatedElements.forEach(el => {
         el.style.opacity = '0';

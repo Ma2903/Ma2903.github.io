@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manoela Pinheiro - Desenvolvedora Full-Stack</title>
+    <title>Manoela Pinheiro - Desenvolvedora Web</title>
+    
+    <meta name="description" content="Portfólio de Manoela Pinheiro, desenvolvedora web especializada em criar aplicações modernas com React e Node.js.">
+    <meta name="keywords" content="Manoela Pinheiro, Desenvolvedora Web, Full-Stack, React, Node.js, Portfólio">
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -22,12 +28,12 @@
             </div>
 
             <div class="nav-social">
-                <a href="https://github.com/Ma2903" target="_blank" class="social-link">
+                <a href="https://github.com/Ma2903" target="_blank" class="social-link" aria-label="GitHub">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                     </svg>
                 </a>
-                <a href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" class="social-link">
+                <a href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" class="social-link" aria-label="LinkedIn">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                          <rect x="2" y="9" width="4" height="12"/>
@@ -36,7 +42,7 @@
                 </a>
             </div>
 
-            <button class="nav-toggle" id="nav-toggle">
+            <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -119,6 +125,15 @@
                                 <span>Disponível</span>
                             </div>
                         </div>
+                        
+                        <a href="curriculo.pdf" download="Curriculo_Manoela_Pinheiro.pdf" class="btn btn-primary">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7,10 12,15 17,10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Download CV
+                        </a>
                     </div>
                 </div>
                 
@@ -318,6 +333,24 @@
                 <p class="section-subtitle">
                     Uma vitrine dos meus trabalhos recentes e projetos pessoais.
                 </p>
+                
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12,2 a15.3,15.3 0 0,1 0,20 a15.3,15.3 0 0,1 0,-20"/>
+                        </svg>
+                        Todos os Projetos
+                    </button>
+                    <button class="filter-btn" data-filter="web">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16,18 22,12 16,6"/>
+                            <polyline points="8,6 2,12 8,18"/>
+                        </svg>
+                        Web
+                    </button>
+                </div>
             </div>
             
             <div class="projects-grid" id="projects-grid">
@@ -391,12 +424,12 @@
                         <div class="social-section">
                             <h4>Siga-me</h4>
                             <div class="social-links">
-                                <a href="https://github.com/Ma2903" target="_blank" class="social-link">
+                                <a href="https://github.com/Ma2903" target="_blank" class="social-link" aria-label="GitHub">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                                     </svg>
                                 </a>
-                                <a href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" class="social-link">
+                                <a href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" class="social-link" aria-label="LinkedIn">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                                         <rect x="2" y="9" width="4" height="12"/>
@@ -461,10 +494,10 @@
                 
                 <div class="footer-links">
                     <h4>Links Rápidos</h4>
-                    <a onclick="scrollToSection('about')">Sobre</a>
-                    <a onclick="scrollToSection('skills')">Habilidades</a>
-                    <a onclick="scrollToSection('projects')">Projetos</a>
-                    <a onclick="scrollToSection('contact')">Contato</a>
+                    <a class="nav-link" href="#about">Sobre</a>
+                    <a class="nav-link" href="#skills">Habilidades</a>
+                    <a class="nav-link" href="#projects">Projetos</a>
+                    <a class="nav-link" href="#contact">Contato</a>
                 </div>
                 
                 <div class="footer-contact">
@@ -472,12 +505,12 @@
                     <a href="mailto:manoelaps2022@gmail.com">manoelaps2022@gmail.com</a>
                     <p>Remoto / São Paulo, Brasil</p>
                     <div class="footer-social">
-                        <a href="https://github.com/Ma2903" target="_blank">
+                        <a href="https://github.com/Ma2903" target="_blank" aria-label="GitHub">
                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                            </svg>
                        </a>
-                       <a href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank">
+                       <a href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" aria-label="LinkedIn">
                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
                                <rect x="2" y="9" width="4" height="12"/>
