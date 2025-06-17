@@ -9,6 +9,24 @@ const currentYearSpan = document.getElementById('current-year');
 // Projects Data
 const projects = [
     {
+        title: "MedResiduos",
+        description: "Plataforma web para conectar hospitais e pacientes, garantindo a rastreabilidade e o descarte correto de resíduos de saúde domiciliares.",
+        image: "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=600",
+        tags: ["React", "Node.js", "Express", "MySQL"],
+        githubUrl: "https://github.com/Ma2903/MedResiduos.git",
+        category: "web",
+        status: "in-progress"
+    },
+    {
+        title: "DevLooks",
+        description: "Loja virtual onde programadores podem personalizar e baixar avatares, além de comprar roupas e itens com temáticas geek e de programação.",
+        image: "https://images.pexels.com/photos/5868272/pexels-photo-5868272.jpeg?auto=compress&cs=tinysrgb&w=600",
+        tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Vite", "Node.js"],
+        githubUrl: "https://github.com/Ma2903/DevLooks.git",
+        category: "web",
+        status: "in-progress" 
+    },
+    {
         title: "Food and Physical Health (TCC)",
         description: "Criação de um site com sugestões para alimentação balanceada e atividades físicas, visando oferecer soluções práticas para melhorar a qualidade de vida.",
         image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -125,7 +143,7 @@ function initializeSkillBars() {
                         const width = bar.getAttribute('data-width');
                         bar.style.width = width + '%';
                     });
-                }, 200); // Pequeno delay para garantir a renderização
+                }, 200);
                 observer.unobserve(entry.target);
             }
         });
@@ -140,11 +158,13 @@ function initializeProjects() {
     renderProjects(projects);
 }
 
-// Render projects
+// Render projects with animation
 function renderProjects(projectsToRender) {
+    if (!projectsGrid) return;
     projectsGrid.innerHTML = '';
-    projectsToRender.forEach(project => {
+    projectsToRender.forEach((project, index) => {
         const projectCard = createProjectCard(project);
+        projectCard.style.animation = `fadeInUp 0.5s ${index * 0.1}s both`;
         projectsGrid.appendChild(projectCard);
     });
 }
@@ -154,9 +174,14 @@ function createProjectCard(project) {
     const card = document.createElement('div');
     card.className = 'project-card';
     card.setAttribute('data-category', project.category);
+
+    const statusBadge = project.status === 'in-progress'
+        ? '<span class="project-status-badge">Em Andamento</span>'
+        : '';
     
     card.innerHTML = `
         <div class="project-image">
+            ${statusBadge}
             <img src="${project.image}" alt="${project.title}" loading="lazy">
             <div class="project-overlay"></div>
             <div class="project-links">
@@ -191,24 +216,15 @@ function initializeProjectFilters() {
             filterButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
             
-            filterProjects(filter);
+            const filteredProjects = projects.filter(p => {
+                if (filter === 'all') {
+                    return true;
+                }
+                const projectTags = p.tags.map(tag => tag.toLowerCase());
+                return projectTags.includes(filter.toLowerCase());
+            });
+            renderProjects(filteredProjects);
         });
-    });
-}
-
-// Filter projects logic
-function filterProjects(filter) {
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    projectCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        const shouldShow = filter === 'all' || category === filter;
-        
-        if (shouldShow) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
     });
 }
 
