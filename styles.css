@@ -965,6 +965,22 @@ section {
     color: #ffffff;
 }
 
+/* Adicione este código no final do seu arquivo styles.css */
+
+.project-status-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(251, 191, 36, 0.9); /* Amarelo/Dourado */
+    color: #1e293b;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 5;
+    backdrop-filter: blur(5px);
+}
+
 /* Animations */
 @keyframes pulse {
     0%, 100% { opacity: 1; }
@@ -1074,5 +1090,16 @@ section {
     
     .project-card {
         margin: 0 0.5rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
