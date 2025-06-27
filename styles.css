@@ -1093,6 +1093,135 @@ section {
     }
 }
 
+.skill-progress-yellow { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+
+/* ==================== Estilos da Seção de Formação ==================== */
+.education {
+    background: rgba(15, 23, 42, 0.5); /* Fundo um pouco diferente para destacar */
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.5px;
+    border-radius: 3px;
+}
+
+.timeline-item {
+    padding: 1rem 2rem;
+    position: relative;
+    width: 50%;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    padding-right: 40px;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 40px;
+    text-align: left;
+}
+
+.timeline-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    border: 2px solid #3b82f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3b82f6;
+    z-index: 10;
+}
+
+.timeline-item:nth-child(odd) .timeline-icon {
+    right: -25px;
+}
+
+.timeline-item:nth-child(even) .timeline-icon {
+    left: -25px;
+}
+
+.timeline-content {
+    padding: 1.5rem;
+    background: rgba(30, 41, 59, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(71, 85, 105, 0.3);
+    border-radius: 1rem;
+    position: relative;
+}
+
+.timeline-date {
+    display: block;
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.timeline-content h3 {
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+    color: #cbd5e1;
+}
+
+/* Responsividade para a timeline */
+@media (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        text-align: left; /* Alinha tudo à esquerda em telas menores */
+    }
+
+    .timeline-item:nth-child(odd) {
+        left: 0;
+        text-align: left;
+    }
+
+    .timeline-item:nth-child(even) {
+        left: 0;
+        text-align: left;
+    }
+
+    .timeline-icon {
+        left: 6px; /* Ajusta a posição do ícone */
+    }
+    
+    .timeline-item:nth-child(odd) .timeline-icon,
+    .timeline-item:nth-child(even) .timeline-icon {
+        left: 6px;
+    }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;

@@ -21,10 +21,19 @@ const projects = [
         title: "DevLooks",
         description: "Loja virtual onde programadores podem personalizar e baixar avatares, além de comprar roupas e itens com temáticas geek e de programação.",
         image: "https://images.pexels.com/photos/5868272/pexels-photo-5868272.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Vite", "Node.js"],
+        tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Vite", "Node.js", "Vue.js"],
         githubUrl: "https://github.com/Ma2903/DevLooks.git",
         category: "web",
         status: "in-progress" 
+    },
+    {
+         title: "Cozinha Sincronizada",
+        description: "Um jogo de simulação de restaurante onde os jogadores precisam preparar e entregar pedidos antes que o tempo acabe. Inspirado em jogos como 'Overcooked'.",
+        image: "https://images.pexels.com/photos/2284166/pexels-photo-2284166.jpeg?auto=compress&cs=tinysrgb&w=600", // SUGESTÃO: Troque por uma captura de tela do seu projeto!
+        tags: ["HTML", "CSS", "JavaScript"],
+        githubUrl: "https://github.com/Ma2903/Cozinha-Sincronizada.git",
+        category: "web",
+        status: "in-progress"
     },
     {
         title: "Food and Physical Health (TCC)",
@@ -50,14 +59,38 @@ const projects = [
         githubUrl: "https://github.com/Ma2903/bingo-game.git",
         category: "web"
     },
+    {
+        title: "Protótipo - MedResiduos",
+        description: "Protótipo inicial da aplicação web MedResiduos. O projeto visa fornecer uma interface simples e intuitiva para o gerenciamento e descarte adequado de resíduos na área da saúde, servindo como base para a aplicação completa.",
+        image: "https://images.pexels.com/photos/572056/pexels-photo-572056.jpeg?auto=compress&cs=tinysrgb&w=600", // SUGESTÃO: Troque por uma captura de tela do protótipo!
+        tags: ["HTML", "CSS", "JavaScript"],
+        githubUrl: "https://github.com/Ma2903/Prototipo-da-MedResiduos.git",
+        category: "web"
+    },
      {
         title: "Datastruct School",
-        description: "Sistema de aprendizado sobre estruturas de dados, incluindo teoria, exemplos práticos e exercícios, para ajudar na compreensão dos principais conceitos.",
+        description: "Aplicação web desenvolvida como um trabalho acadêmico para ensinar estudantes sobre estruturas de dados. Atuei como designer, criando a interface, e como desenvolvedora front-end, implementando a experiência do usuário.",
         image: "https://images.pexels.com/photos/5473956/pexels-photo-5473956.jpeg?auto=compress&cs=tinysrgb&w=600",
         tags: ["PHP", "HTML", "CSS"],
         githubUrl: "https://github.com/JP1005YT/EstruturaDeDados.git",
         category: "web"
-    }
+    },
+    {
+        title: "Oficina ETEC - Chat em Tempo Real",
+        description: "Projeto demonstrativo de comunicação em tempo real utilizando Socket.io e Node.js, criado para uma oficina na Etec. O objetivo é fornecer uma base para implementar funcionalidades de comunicação instantânea em aplicações web.",
+        image: "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600", // SUGESTÃO: Troque por uma foto do evento ou uma captura de tela!
+        tags: ["Node.js", "Socket.io", "Express", "JavaScript"],
+        githubUrl: "https://github.com/Ma2903/Oficina-ETEC.git",
+        category: "web"
+    },
+    {
+        title: "TCC - Escrita e Design",
+        description: "Repositório com os materiais do TCC, incluindo a documentação completa, manual, cronograma, apresentação e todos os ativos de design visual, como layout, paleta de cores e fontes.",
+        image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600", // SUGESTÃO: Crie uma imagem-montagem com os elementos de design!
+        tags: ["UX/UI Design", "Project Planning", "Documentation", "Canva"],
+        githubUrl: "https://github.com/Ma2903/TCC--Escrito-e-design.git",
+        category: "web" 
+    },
 ];
 
 // Initialize
