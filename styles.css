@@ -1222,6 +1222,42 @@ section {
     }
 }
 
+/* ==================== Estilos para Layout com Foto na Seção Sobre ==================== */
+.about-content {
+    grid-template-columns: 1fr 2fr; /* Divide a seção em 1/3 para a imagem e 2/3 para o texto */
+    align-items: center; /* Alinha verticalmente a imagem e o texto */
+    gap: 3rem;
+}
+
+.about-image-container {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.about-photo {
+    width: 100%;
+    border-radius: 1rem;
+    border: 3px solid #3b82f6;
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+}
+
+.about-text-container .card p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 992px) {
+    .about-content {
+        grid-template-columns: 1fr; /* Volta a ser uma coluna única */
+    }
+
+    .about-image-container {
+        margin-bottom: 2rem; /* Adiciona um espaço abaixo da foto */
+    }
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
