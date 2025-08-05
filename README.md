@@ -30,7 +30,7 @@ Este projeto foi desenvolvido para apresentar de forma clara e interativa os pro
 
 ## Como Usar  
 
-Para visualizar o site, basta abrir o seguinte link: [Portfólio de Manu](https://ma2903.github.io/Portifolio/).  
+Para visualizar o site, basta abrir o seguinte link: [Portfólio de Manu](https://ma2903.github.io).  
 
 ## Contato  
 
