@@ -9,88 +9,78 @@ const currentYearSpan = document.getElementById('current-year');
 // Projects Data
 const projects = [
     {
-        title: "MedResiduos",
-        description: "Plataforma web para conectar hospitais e pacientes, garantindo a rastreabilidade e o descarte correto de resíduos de saúde domiciliares.",
-        image: "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["React", "Node.js", "Express", "MySQL"],
-        githubUrl: "https://github.com/Ma2903/MedResiduos.git",
-        category: "web",
-        status: "in-progress"
-    },
-    {
         title: "DevLooks",
-        description: "Loja virtual onde programadores podem personalizar e baixar avatares, além de comprar roupas e itens com temáticas geek e de programação.",
+        description: "E-commerce full-stack para o público dev, com vitrine de produtos, carrinho, criação de avatares e painel de admin. Construído com Vue.js, Node.js, Express e MongoDB.",
         image: "https://images.pexels.com/photos/5868272/pexels-photo-5868272.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "Vite", "Node.js", "Vue.js"],
+        tags: ["Vue.js", "Node.js", "MongoDB", "Tailwind CSS", "E-commerce"],
         githubUrl: "https://github.com/Ma2903/DevLooks.git",
         category: "web",
         status: "in-progress" 
     },
     {
-         title: "Cozinha Sincronizada",
-        description: "Um jogo de simulação de restaurante onde os jogadores precisam preparar e entregar pedidos antes que o tempo acabe. Inspirado em jogos como 'Overcooked'.",
-        image: "https://images.pexels.com/photos/2284166/pexels-photo-2284166.jpeg?auto=compress&cs=tinysrgb&w=600", // SUGESTÃO: Troque por uma captura de tela do seu projeto!
-        tags: ["HTML", "CSS", "JavaScript"],
-        githubUrl: "https://github.com/Ma2903/Cozinha-Sincronizada.git",
-        category: "web",
-        status: "in-progress"
-    },
-    {
-        title: "Food and Physical Health (TCC)",
-        description: "Criação de um site com sugestões para alimentação balanceada e atividades físicas, visando oferecer soluções práticas para melhorar a qualidade de vida.",
-        image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["HTML", "CSS", "JavaScript", "Node.js", "JSON"],
-        githubUrl: "https://github.com/JP1005YT/TCC-DS.git",
-        category: "web"
-    },
-    {
-        title: "Site APAE",
-        description: "Aplicação web para gerenciar usuários, eventos e recursos da APAE. Oferece uma interface intuitiva para facilitar a administração e integração da instituição.",
-        image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["HTML", "CSS", "JavaScript", "PHP"],
-        githubUrl: "https://github.com/Ma2903/APAE.git",
-        category: "web"
-    },
-    {
         title: "Bingo Game for Devs",
-        description: "🎯 Jogo de Bingo feito para devs! Em vez de números, as pedras sorteadas são palavras do universo da programação como bug, commit, loop e muito mais.",
+        description: "🎯 Jogo de Bingo divertido para desenvolvedores! Sorteie termos de programação em vez de números e teste seus conhecimentos. Feito com JavaScript puro.",
         image: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["HTML", "CSS", "JavaScript"],
+        tags: ["JavaScript", "Frontend", "Game", "DOM"],
         githubUrl: "https://github.com/Ma2903/bingo-game.git",
         category: "web"
     },
     {
-        title: "Protótipo - MedResiduos",
-        description: "Protótipo inicial da aplicação web MedResiduos. O projeto visa fornecer uma interface simples e intuitiva para o gerenciamento e descarte adequado de resíduos na área da saúde, servindo como base para a aplicação completa.",
-        image: "https://images.pexels.com/photos/572056/pexels-photo-572056.jpeg?auto=compress&cs=tinysrgb&w=600", // SUGESTÃO: Troque por uma captura de tela do protótipo!
-        tags: ["HTML", "CSS", "JavaScript"],
-        githubUrl: "https://github.com/Ma2903/Prototipo-da-MedResiduos.git",
+         title: "Cozinha Sincronizada",
+        description: "Jogo educacional em JavaScript que ensina paralelismo e concorrência através da gerência de uma cozinha. Inspirado em 'Overcooked', aborda conceitos como threads e deadlocks.",
+        image: "https://images.pexels.com/photos/2284166/pexels-photo-2284166.jpeg?auto=compress&cs=tinysrgb&w=600",
+        tags: ["JavaScript", "HTML", "CSS", "Game", "Concurrency"],
+        githubUrl: "https://github.com/Ma2903/Cozinha-Sincronizada.git",
         category: "web"
     },
      {
         title: "Datastruct School",
-        description: "Aplicação web desenvolvida como um trabalho acadêmico para ensinar estudantes sobre estruturas de dados. Atuei como designer, criando a interface, e como desenvolvedora front-end, implementando a experiência do usuário.",
+        description: "Aplicação educacional para ensinar estudantes sobre Estruturas de Dados. Atuei como designer (UI) e desenvolvedora front-end, implementando a interface e os conteúdos interativos.",
         image: "https://images.pexels.com/photos/5473956/pexels-photo-5473956.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["PHP", "HTML", "CSS"],
+        tags: ["PHP", "HTML", "CSS", "UI Design"],
         githubUrl: "https://github.com/JP1005YT/EstruturaDeDados.git",
         category: "web"
     },
     {
-        title: "Oficina ETEC - Chat em Tempo Real",
-        description: "Projeto demonstrativo de comunicação em tempo real utilizando Socket.io e Node.js, criado para uma oficina na Etec. O objetivo é fornecer uma base para implementar funcionalidades de comunicação instantânea em aplicações web.",
-        image: "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600", // SUGESTÃO: Troque por uma foto do evento ou uma captura de tela!
-        tags: ["Node.js", "Socket.io", "Express", "JavaScript"],
+        title: "DevBot - Palestra sobre IA com Google Gemini",
+        description: "Palestra e minicurso sobre Inteligência Artificial, onde construímos o DevBot, um chatbot parceiro de estudos que utiliza a API do Google Gemini para criar aplicações inteligentes e desmistificar a IA para novos desenvolvedores.",
+        image: "https://images.pexels.com/photos/5926382/pexels-photo-5926382.jpeg?auto=compress&cs=tinysrgb&w=600", // SUGESTÃO: Use o print do DevBot que está no seu post do LinkedIn!
+        tags: ["Inteligência Artificial", "Google Gemini", "API", "Palestra", "PHP", "JavaScript"],
+        githubUrl: "https://github.com/DevZIKIII/ChatbotDevSafe",
+        category: "web"
+    },
+    {
+        title: "MedResiduos - Feito para o Hackathon",
+        description: "Plataforma full-stack para gestão de resíduos de saúde, conectando pacientes, unidades de saúde e empresas de coleta. Projeto vencedor do Hackathon Tech4Health da Fatec.",
+        image: "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=600",
+        tags: ["React", "Node.js", "Express", "MySQL", "Hackathon"],
+        githubUrl: "https://github.com/Ma2903/MedResiduos.git",
+        category: "web"
+    },
+    {
+        title: "Oficina ETEC - Chat com Socket.io",
+        description: "Projeto de apoio para um minicurso sobre criação de chats em tempo real, utilizando Node.js, Express e Socket.IO. Apresentado na ETEC.",
+        image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600",
+        tags: ["Node.js", "Socket.io", "Express", "Workshop"],
         githubUrl: "https://github.com/Ma2903/Oficina-ETEC.git",
         category: "web"
     },
     {
-        title: "TCC - Escrita e Design",
-        description: "Repositório com os materiais do TCC, incluindo a documentação completa, manual, cronograma, apresentação e todos os ativos de design visual, como layout, paleta de cores e fontes.",
-        image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600", // SUGESTÃO: Crie uma imagem-montagem com os elementos de design!
-        tags: ["UX/UI Design", "Project Planning", "Documentation", "Canva"],
-        githubUrl: "https://github.com/Ma2903/TCC--Escrito-e-design.git",
-        category: "web" 
+        title: "Portal Culinário - Chat em Tempo Real",
+        description: "Aplicação de chat com tema culinário, usando Node.js, Socket.IO e React para comunicação com WebSockets, permitindo que múltiplos usuários interajam instantaneamente.",
+        image: "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600",
+        tags: ["React", "Node.js", "Socket.IO", "WebSockets"],
+        githubUrl: "https://github.com/Ma2903/Portal-Culinario",
+        category: "web"
     },
+    {
+        title: "Site Institucional APAE",
+        description: "Aplicação web para gerenciar usuários, eventos e recursos da APAE. Oferece uma interface intuitiva para facilitar a administração e integração da instituição.",
+        image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600",
+        tags: ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
+        githubUrl: "https://github.com/Ma2903/APAE.git",
+        category: "web"
+    }
 ];
 
 // Initialize
