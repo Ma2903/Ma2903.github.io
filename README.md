@@ -1,44 +1,42 @@
-# Portfólio de Manu  
+# Portfólio | Manoela Pinheiro
 
-Bem-vindo ao meu portfólio! Este repositório contém o código-fonte do meu site pessoal, onde compartilho meus projetos de desenvolvimento web, habilidades técnicas e informações de contato.  
+Bem-vindo ao repositório do meu portfólio pessoal! Este projeto foi desenvolvido para ser um espaço central onde compartilho minha jornada como desenvolvedora, meus projetos e as tecnologias com as quais trabalho.
 
-## Visão Geral  
+**[Acesse o portfólio ao vivo aqui!](https://ma2903.github.io/)**
 
-Este projeto foi desenvolvido para apresentar de forma clara e interativa os projetos nos quais venho trabalhando. Ele inclui seções como:  
+## ✨ Visão Geral
 
-- **Início:** Uma introdução ao portfólio e uma visão geral dos principais destaques.  
-- **Projetos:** Uma galeria dos meus projetos recentes, com descrições e links para seus repositórios.  
-- **Habilidades:** Uma lista das tecnologias e habilidades que possuo, com níveis de proficiência.  
-- **Contato:** Formas de entrar em contato comigo, incluindo meu e-mail, LinkedIn e GitHub.  
+Este site foi criado para apresentar de forma clara e interativa os projetos nos quais venho trabalhando. Ele foi estruturado para fornecer uma visão completa sobre minhas habilidades e minha paixão por desenvolvimento, incluindo seções como:
 
-## Características Principais  
+-   **Início:** Uma introdução ao meu trabalho e destaques.
+-   **Sobre:** Detalhes sobre minha jornada, minhas paixões e minhas competências.
+-   **Projetos:** Uma galeria com meus trabalhos recentes, incluindo descrições e links para os repositórios.
+-   **Habilidades:** Uma lista detalhada das tecnologias e ferramentas que domino.
+-   **Contato:** Minhas informações de contato para oportunidades e colaborações.
 
-- **Responsividade:** O site é totalmente responsivo, garantindo uma experiência consistente em diferentes dispositivos.  
-- **Interação:** Utilização de animações e efeitos para melhorar a experiência do usuário.  
-- **Fácil Navegação:** Interface intuitiva para navegação entre as seções.  
-- **Tecnologias Utilizadas:** HTML5, CSS3 e JavaScript.  
+## 🚀 Tecnologias Utilizadas
 
-## Habilidades  
+Este portfólio foi construído com as seguintes tecnologias:
 
-| Tecnologia       | Nível          |  
-|------------------|----------------|  
-| HTML5            | Avançado      |  
-| CSS3             | Avançado      |  
-| JavaScript       | Intermediário |  
-| Node.js          | Básico        |  
- 
+| Tecnologia | Finalidade |
+| :--- | :--- |
+| **HTML5** | Estruturação e semântica do conteúdo. |
+| **CSS3** | Estilização, animações e responsividade. |
+| **JavaScript** | Interatividade, manipulação do DOM e lógica do front-end. |
 
-## Como Usar  
+## 🌟 Habilidades em Destaque
 
-Para visualizar o site, basta abrir o seguinte link: [Portfólio de Manu](https://ma2903.github.io).  
+Ao longo da minha jornada, adquiri experiência com diversas tecnologias e metodologias, incluindo:
 
-## Contato  
+-   **Front-End:** HTML5, CSS3, JavaScript, React, Vue.js, Tailwind CSS e Bulma.
+-   **Back-End:** PHP, Node.js.
+-   **Banco de Dados:** MySQL e SQL.
+-   **Ferramentas e Metodologias:** Git, GitHub, Figma, Scrum e Kanban.
 
-Você pode entrar em contato comigo através das seguintes plataformas:  
-- **E-mail:** manoela2903@outlook.com 
-- **[LinkedIn](https://www.linkedin.com/in/manoela-p-44aa75259/)**  
-- **[GitHub](https://github.com/Ma2903)**  
+## 📫 Contato
 
-## Sobre Mim  
+Vamos nos conectar! Você pode me encontrar nas seguintes plataformas:
 
-Sou uma desenvolvedora apaixonada por criar soluções eficientes e bonitas. Estou sempre buscando aprender novas tecnologias e me aprimorar na área de desenvolvimento.
+-   **E-mail:** [manoela2903@outlook.com](mailto:manoela2903@outlook.com)
+-   **LinkedIn:** [https://www.linkedin.com/in/manoela-ps/](https://www.linkedin.com/in/manoela-ps/)
+-   **GitHub:** [https://github.com/Ma2903](https://github.com/Ma2903)
