@@ -116,7 +116,7 @@ body {
     justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: 2rem 1rem;
+    padding: 80px 1rem 2rem;
 }
 
 .hero-bg {
@@ -164,24 +164,6 @@ body {
     max-width: 800px;
     position: relative;
     z-index: 10;
-}
-
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(30, 41, 59, 0.5);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(71, 85, 105, 0.3);
-    border-radius: 50px;
-    padding: 0.5rem 1rem;
-    margin-bottom: 2rem;
-    font-size: 0.875rem;
-    color: #cbd5e1;
-}
-
-.hero-badge svg {
-    color: #fbbf24;
 }
 
 .hero-title {
@@ -1223,23 +1205,38 @@ section {
 }
 
 /* ==================== Estilos para Layout com Foto na Seção Sobre ==================== */
+/* MODIFICADO: Bloco de código para a nova estilização da foto */
 .about-content {
-    grid-template-columns: 1fr 2fr; /* Divide a seção em 1/3 para a imagem e 2/3 para o texto */
-    align-items: center; /* Alinha verticalmente a imagem e o texto */
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
     gap: 3rem;
 }
 
 .about-image-container {
+    position: relative;
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
+    z-index: 1; 
+}
+
+.about-image-container::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    filter: blur(15px);
+    z-index: -1;
+    border-radius: 1rem;
+    opacity: 0.75;
 }
 
 .about-photo {
     width: 100%;
+    display: block;
     border-radius: 1rem;
-    border: 3px solid #3b82f6;
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+    border: 2px solid #1e293b; 
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.5);
 }
 
 .about-text-container .card p {
