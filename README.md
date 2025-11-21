@@ -37,6 +37,6 @@ Ao longo da minha jornada, adquiri experiência com diversas tecnologias e metod
 
 Vamos nos conectar! Você pode me encontrar nas seguintes plataformas:
 
--   **E-mail:** [manoela2903@outlook.com](mailto:manoela2903@outlook.com)
--   **LinkedIn:** [https://www.linkedin.com/in/manoela-ps/](https://www.linkedin.com/in/manoela-ps/)
+-   **E-mail:** [manoelaps2022@gmail.com](mailto:manoelaps2022@gmail.com)
+-   **LinkedIn:** [https://www.linkedin.com/in/manoela-p-44aa75259/](https://www.linkedin.com/in/manoela-p-44aa75259/)
 -   **GitHub:** [https://github.com/Ma2903](https://github.com/Ma2903)

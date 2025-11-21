@@ -1,84 +1,124 @@
+// ====================================================================
 // DOM Elements
+// ====================================================================
 const header = document.getElementById('header');
 const navToggle = document.getElementById('nav-toggle');
 const navMenu = document.getElementById('nav-menu');
-const contactForm = document.getElementById('contact-form');
 const projectsGrid = document.getElementById('projects-grid');
 const currentYearSpan = document.getElementById('current-year');
+const contactForm = document.getElementById('contact-form');
 
-// Para exibir todos os repositórios do GitHub, deixe o array abaixo vazio
-const visibleRepos = [];
+// ====================================================================
+// 💡 INFORMAÇÕES CRUCIAIS PARA ATUALIZAÇÃO DOS PROJETOS (Metadados Manuais)
+//
+// 1. Substitua os nomes dos repositórios (a chave, ex: 'Ecommerce-React-Node') 
+//    pelos nomes EXATOS dos seus projetos no GitHub.
+// 2. Troque as URLs de exemplo (Unsplash) pelas URLs das suas imagens 
+//    permanentes (hospedadas no GitHub, Imgur, ou serviço de sua preferência).
+// 3. Preencha a 'description' e as 'tags' (múltiplas tecnologias) corretamente.
+// ====================================================================
+const projectMetadata = {
 
-// Busca repositórios do GitHub e exibe no portfólio
+    'Ecommerce-React-Node': {
+        // Imagem temática: Compras e Checkout
+        image: 'https://source.unsplash.com/600x400/?shopping,ecommerce,checkout', 
+        description: 'Plataforma de e-commerce Full-Stack. O frontend foi desenvolvido em React e utiliza Redux para gerenciamento de estado. O backend é uma API REST robusta em Node.js com Express, utilizando MongoDB para o banco de dados e autenticação JWT.',
+        tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Full-Stack', 'JavaScript'],
+        status: 'completed'
+    },
+    
+    'Task-Manager-API': {
+        // Imagem temática: Gerenciamento de Tarefas
+        image: 'https://source.unsplash.com/600x400/?task,management,dashboard',
+        description: 'Um sistema de gerenciamento de projetos e tarefas inspirado no Kanban. Frontend feito em Vue.js com Vuex para a lógica da aplicação, consumindo uma API REST em PHP (Laravel). Utiliza MySQL para o banco de dados.',
+        tags: ['Vue.js', 'PHP', 'Laravel', 'MySQL', 'API REST', 'Kanban'],
+        status: 'completed'
+    },
+
+    'Meu-Portfolio-Site': {
+        // Imagem temática: Codificação e Website
+        image: 'https://source.unsplash.com/600x400/?portfolio,coding,website',
+        description: 'Este projeto: meu portfólio pessoal. Desenvolvido com foco em UI/UX e performance. Implementa animações com Intersection Observer e utiliza JavaScript puro para a interatividade e integração com o GitHub. ',
+        tags: ['HTML5', 'CSS3', 'JavaScript', 'UI/UX', 'Performance'],
+        status: 'completed'
+    },
+
+    'Sistema-Blog-PHP': {
+        // Imagem temática: Blog e Escrita
+        image: 'https://source.unsplash.com/600x400/?blog,writing,cms',
+        description: 'Sistema de gerenciamento de conteúdo (CMS) simples, desenvolvido do zero em PHP, seguindo o padrão MVC. Permite a criação, edição e exclusão de posts de blog. O banco de dados é gerido via phpMyAdmin.',
+        tags: ['PHP', 'MySQL', 'MVC', 'HTML5', 'CSS3'],
+        status: 'in-progress'
+    },
+    
+};
+
+// ====================================================================
+// Configuração e Inicialização
+// ====================================================================
+
+// Função Principal: Busca repositórios do GitHub e aplica os metadados manuais
 async function fetchAndDisplayGitHubProjects() {
-    const username = 'Ma2903';
+    const username = 'Ma2903'; // SEU USUÁRIO
     const apiUrl = `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`;
+    const defaultFallbackImage = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80';
+
     try {
         const response = await fetch(apiUrl);
-        if (!response.ok) throw new Error('Erro ao buscar repositórios do GitHub');
+        if (!response.ok) throw new Error('Erro ao buscar repositórios do GitHub. Verifique o nome de usuário.');
         const repos = await response.json();
 
-        // Se visibleRepos estiver vazio, mostra todos os repositórios
-        const filtered = repos;
-
-        // Imagem padrão do Unsplash
-        const defaultImage = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80';
-
-        // Função para buscar imagem do Unsplash baseada em palavra-chave
-        async function getUnsplashImage(keyword) {
-            const url = `https://source.unsplash.com/600x400/?${encodeURIComponent(keyword)}`;
-            // O Unsplash sempre retorna uma imagem, mesmo se não houver resultado exato
-            return url;
-        }
-
-        // Mapeia para o formato esperado pelo renderProjects
-        const projectsToShow = await Promise.all(filtered.map(async repo => {
-            const coverUrl = 'https://raw.githubusercontent.com/' + username + '/' + repo.name + '/main/cover.png';
-            let imageUrl = coverUrl;
-            try {
-                const res = await fetch(coverUrl, { method: 'HEAD' });
-                if (!res.ok) {
-                    // Usa linguagem ou nome do projeto como palavra-chave para imagem
-                    const keyword = repo.language || repo.name;
-                    imageUrl = await getUnsplashImage(keyword);
-                }
-            } catch {
-                const keyword = repo.language || repo.name;
-                imageUrl = await getUnsplashImage(keyword);
-            }
+        // Mapeia os repositórios, mesclando com os metadados manuais
+        const projectsToShow = repos.map(repo => {
+            const manualData = projectMetadata[repo.name] || {};
+            
+            // Prioriza metadados manuais ou usa defaults
+            const image = manualData.image || defaultFallbackImage; 
+            const description = manualData.description || repo.description || 'Projeto sem descrição. Adicione uma descrição no objeto projectMetadata no scripts.js.';
+            // Tags (múltiplas tecnologias)
+            const tags = manualData.tags && manualData.tags.length > 0 ? manualData.tags : [repo.language || 'Outro'];
+            
             return {
                 title: repo.name,
-                description: repo.description || 'Projeto sem descrição.',
-                image: imageUrl,
-                tags: [repo.language || 'Outro'],
+                description: description,
+                image: image,
+                tags: tags,
                 githubUrl: repo.html_url,
-                category: 'web',
+                status: manualData.status || 'completed'
             };
-        }));
+        });
 
         // Ordena os projetos por ordem alfabética do título
         projectsToShow.sort((a, b) => a.title.localeCompare(b.title, 'pt-BR', { sensitivity: 'base' }));
         renderProjects(projectsToShow);
+        
+        // Armazena a lista completa de projetos na janela para o filtro acessar
+        window.allProjects = projectsToShow;
+
     } catch (e) {
-        // Se der erro, mostra os projetos locais (antigo)
-        if (typeof projects !== 'undefined') {
-            renderProjects(projects);
+        console.error("Erro ao buscar projetos:", e);
+        if (projectsGrid) {
+             projectsGrid.innerHTML = `<p style="grid-column: 1 / -1; text-align: center; color: #cbd5e1;">Não foi possível carregar os projetos do GitHub. ${e.message}</p>`;
         }
     }
 }
 
-// Initialize
+// Inicializa o portfólio após o carregamento completo da página
 document.addEventListener('DOMContentLoaded', function() {
     initializeHeader();
     initializeNavigation();
     initializeSkillBars();
     // Chama a busca dos projetos do GitHub
     fetchAndDisplayGitHubProjects();
-    initializeProjectFilters();
+    initializeProjectFilters(); 
     initializeContactForm();
     setCurrentYear();
     initializeScrollAnimations();
 });
+
+// ====================================================================
+// Funções Auxiliares
+// ====================================================================
 
 // Header scroll effect
 function initializeHeader() {
@@ -92,7 +132,7 @@ function initializeHeader() {
     });
 }
 
-// Navigation functionality
+// Navigation functionality (mobile and smooth scroll)
 function initializeNavigation() {
     if (navToggle && navMenu) {
         navToggle.addEventListener('click', function() {
@@ -160,13 +200,16 @@ function initializeSkillBars() {
     observer.observe(skillsSection);
 }
 
-// Initialize projects
-// Removido: initializeProjects (agora é automático via fetch)
-
 // Render projects with animation
 function renderProjects(projectsToRender) {
     if (!projectsGrid) return;
     projectsGrid.innerHTML = '';
+    
+    if (projectsToRender.length === 0) {
+        projectsGrid.innerHTML = `<p style="grid-column: 1 / -1; text-align: center; color: #cbd5e1;">Nenhum projeto encontrado para este filtro.</p>`;
+        return;
+    }
+    
     projectsToRender.forEach((project, index) => {
         const projectCard = createProjectCard(project);
         projectCard.style.animation = `fadeInUp 0.5s ${index * 0.1}s both`;
@@ -174,12 +217,11 @@ function renderProjects(projectsToRender) {
     });
 }
 
-// Create project card
+// Create project card - Agora com suporte a múltiplas tags e badge de status
 function createProjectCard(project) {
     const card = document.createElement('div');
     card.className = 'project-card';
-    card.setAttribute('data-category', project.category);
-
+    
     const statusBadge = project.status === 'in-progress'
         ? '<span class="project-status-badge">Em Andamento</span>'
         : '';
@@ -209,24 +251,30 @@ function createProjectCard(project) {
     return card;
 }
 
-// Initialize project filters
+// Initialize project filters - Lógica aprimorada para MÚLTIPLAS tags
 function initializeProjectFilters() {
     const filterButtons = document.querySelectorAll('.project-filters .filter-btn');
     if (filterButtons.length === 0) return;
 
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            const filter = this.getAttribute('data-filter');
+            // Converte o filtro para minúsculas para comparação
+            const filter = this.getAttribute('data-filter').toLowerCase();
             
             filterButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
             
-            const filteredProjects = projects.filter(p => {
+            // A lista de projetos completa deve estar em window.allProjects
+            const projectsToFilter = window.allProjects || [];
+            
+            const filteredProjects = projectsToFilter.filter(p => {
                 if (filter === 'all') {
                     return true;
                 }
+                
+                // Filtra se ALGUMA tag do projeto (em minúsculas) inclui o texto do filtro.
                 const projectTags = p.tags.map(tag => tag.toLowerCase());
-                return projectTags.includes(filter.toLowerCase());
+                return projectTags.some(tag => tag.includes(filter)); 
             });
             renderProjects(filteredProjects);
         });
@@ -242,7 +290,7 @@ function initializeContactForm() {
 
         const form = e.target;
         const data = new FormData(form);
-        const action = "https://formspree.io/f/xgvwzygo";
+        const action = "https://formspree.io/f/xgvwzygo"; // URL do seu Formspree
 
         fetch(action, {
             method: 'POST',
