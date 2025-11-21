@@ -6,89 +6,74 @@ const contactForm = document.getElementById('contact-form');
 const projectsGrid = document.getElementById('projects-grid');
 const currentYearSpan = document.getElementById('current-year');
 
-// Projects Data
-const projects = [
-    {
-        title: "DevLooks",
-        description: "E-commerce full-stack para o público dev, com vitrine de produtos, carrinho, criação de avatares e painel de admin. Construído com Vue.js, Node.js, Express e MongoDB.",
-        image: "https://images.pexels.com/photos/5868272/pexels-photo-5868272.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["Vue.js", "Node.js", "MongoDB", "Tailwind CSS", "E-commerce"],
-        githubUrl: "https://github.com/Ma2903/DevLooks.git",
-        category: "web",
-        status: "in-progress" 
-    },
-    {
-        title: "Bingo Game for Devs",
-        description: "🎯 Jogo de Bingo divertido para desenvolvedores! Sorteie termos de programação em vez de números e teste seus conhecimentos. Feito com JavaScript puro.",
-        image: "https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["JavaScript", "Frontend", "Game", "DOM"],
-        githubUrl: "https://github.com/Ma2903/bingo-game.git",
-        category: "web"
-    },
-    {
-         title: "Cozinha Sincronizada",
-        description: "Jogo educacional em JavaScript que ensina paralelismo e concorrência através da gerência de uma cozinha. Inspirado em 'Overcooked', aborda conceitos como threads e deadlocks.",
-        image: "https://images.pexels.com/photos/2284166/pexels-photo-2284166.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["JavaScript", "HTML", "CSS", "Game", "Concurrency"],
-        githubUrl: "https://github.com/Ma2903/Cozinha-Sincronizada.git",
-        category: "web"
-    },
-     {
-        title: "Datastruct School",
-        description: "Aplicação educacional para ensinar estudantes sobre Estruturas de Dados. Atuei como designer (UI) e desenvolvedora front-end, implementando a interface e os conteúdos interativos.",
-        image: "https://images.pexels.com/photos/5473956/pexels-photo-5473956.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["PHP", "HTML", "CSS", "UI Design"],
-        githubUrl: "https://github.com/JP1005YT/EstruturaDeDados.git",
-        category: "web"
-    },
-    {
-        title: "DevBot - Palestra sobre IA com Google Gemini",
-        description: "Palestra e minicurso sobre Inteligência Artificial, onde construímos o DevBot, um chatbot parceiro de estudos que utiliza a API do Google Gemini para criar aplicações inteligentes e desmistificar a IA para novos desenvolvedores.",
-        image: "https://images.pexels.com/photos/5926382/pexels-photo-5926382.jpeg?auto=compress&cs=tinysrgb&w=600", // SUGESTÃO: Use o print do DevBot que está no seu post do LinkedIn!
-        tags: ["Inteligência Artificial", "Google Gemini", "API", "Palestra", "PHP", "JavaScript"],
-        githubUrl: "https://github.com/DevZIKIII/ChatbotDevSafe",
-        category: "web"
-    },
-    {
-        title: "MedResiduos - Feito para o Hackathon",
-        description: "Plataforma full-stack para gestão de resíduos de saúde, conectando pacientes, unidades de saúde e empresas de coleta. Projeto vencedor do Hackathon Tech4Health da Fatec.",
-        image: "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["React", "Node.js", "Express", "MySQL", "Hackathon"],
-        githubUrl: "https://github.com/Ma2903/MedResiduos.git",
-        category: "web"
-    },
-    {
-        title: "Oficina ETEC - Chat com Socket.io",
-        description: "Projeto de apoio para um minicurso sobre criação de chats em tempo real, utilizando Node.js, Express e Socket.IO. Apresentado na ETEC.",
-        image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["Node.js", "Socket.io", "Express", "Workshop"],
-        githubUrl: "https://github.com/Ma2903/Oficina-ETEC.git",
-        category: "web"
-    },
-    {
-        title: "Portal Culinário - Chat em Tempo Real",
-        description: "Aplicação de chat com tema culinário, usando Node.js, Socket.IO e React para comunicação com WebSockets, permitindo que múltiplos usuários interajam instantaneamente.",
-        image: "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["React", "Node.js", "Socket.IO", "WebSockets"],
-        githubUrl: "https://github.com/Ma2903/Portal-Culinario",
-        category: "web"
-    },
-    {
-        title: "Site Institucional APAE",
-        description: "Aplicação web para gerenciar usuários, eventos e recursos da APAE. Oferece uma interface intuitiva para facilitar a administração e integração da instituição.",
-        image: "https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600",
-        tags: ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
-        githubUrl: "https://github.com/Ma2903/APAE.git",
-        category: "web"
+// Para exibir todos os repositórios do GitHub, deixe o array abaixo vazio
+const visibleRepos = [];
+
+// Busca repositórios do GitHub e exibe no portfólio
+async function fetchAndDisplayGitHubProjects() {
+    const username = 'Ma2903';
+    const apiUrl = `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`;
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error('Erro ao buscar repositórios do GitHub');
+        const repos = await response.json();
+
+        // Se visibleRepos estiver vazio, mostra todos os repositórios
+        const filtered = repos;
+
+        // Imagem padrão do Unsplash
+        const defaultImage = 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80';
+
+        // Função para buscar imagem do Unsplash baseada em palavra-chave
+        async function getUnsplashImage(keyword) {
+            const url = `https://source.unsplash.com/600x400/?${encodeURIComponent(keyword)}`;
+            // O Unsplash sempre retorna uma imagem, mesmo se não houver resultado exato
+            return url;
+        }
+
+        // Mapeia para o formato esperado pelo renderProjects
+        const projectsToShow = await Promise.all(filtered.map(async repo => {
+            const coverUrl = 'https://raw.githubusercontent.com/' + username + '/' + repo.name + '/main/cover.png';
+            let imageUrl = coverUrl;
+            try {
+                const res = await fetch(coverUrl, { method: 'HEAD' });
+                if (!res.ok) {
+                    // Usa linguagem ou nome do projeto como palavra-chave para imagem
+                    const keyword = repo.language || repo.name;
+                    imageUrl = await getUnsplashImage(keyword);
+                }
+            } catch {
+                const keyword = repo.language || repo.name;
+                imageUrl = await getUnsplashImage(keyword);
+            }
+            return {
+                title: repo.name,
+                description: repo.description || 'Projeto sem descrição.',
+                image: imageUrl,
+                tags: [repo.language || 'Outro'],
+                githubUrl: repo.html_url,
+                category: 'web',
+            };
+        }));
+
+        // Ordena os projetos por ordem alfabética do título
+        projectsToShow.sort((a, b) => a.title.localeCompare(b.title, 'pt-BR', { sensitivity: 'base' }));
+        renderProjects(projectsToShow);
+    } catch (e) {
+        // Se der erro, mostra os projetos locais (antigo)
+        if (typeof projects !== 'undefined') {
+            renderProjects(projects);
+        }
     }
-];
+}
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
     initializeHeader();
     initializeNavigation();
     initializeSkillBars();
-    initializeProjects();
+    // Chama a busca dos projetos do GitHub
+    fetchAndDisplayGitHubProjects();
     initializeProjectFilters();
     initializeContactForm();
     setCurrentYear();
@@ -176,10 +161,7 @@ function initializeSkillBars() {
 }
 
 // Initialize projects
-function initializeProjects() {
-    if (!projectsGrid) return;
-    renderProjects(projects);
-}
+// Removido: initializeProjects (agora é automático via fetch)
 
 // Render projects with animation
 function renderProjects(projectsToRender) {
