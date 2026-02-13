@@ -10,19 +10,32 @@ const projectMetadata = {
   'Ecommerce-React-Node': {
     image: 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1000&q=80',
     description: 'E-commerce full-stack com frontend em React, API em Node.js/Express, autenticação e persistência de dados.',
-    tags: ['React', 'Node.js', 'Express', 'MongoDB']
+    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Full-Stack'],
+    category: 'fullstack'
   },
   'Task-Manager-API': {
     image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1000&q=80',
     description: 'Gerenciador de tarefas inspirado em Kanban com API REST, organização de fluxo e foco em produtividade.',
-    tags: ['API REST', 'Kanban', 'MySQL']
+    tags: ['API REST', 'Kanban', 'MySQL', 'Backend'],
+    category: 'api'
   },
   'Meu-Portfolio-Site': {
     image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1000&q=80',
     description: 'Portfólio pessoal com foco em frontend, experiência visual e exibição clara de habilidades e projetos.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'UI']
+    tags: ['HTML', 'CSS', 'JavaScript', 'UI', 'Frontend'],
+    category: 'frontend'
   }
 };
+
+let allProjects = [];
+
+function guessCategory(repo, tags) {
+  const text = `${repo.name} ${repo.description || ''} ${tags.join(' ')}`.toLowerCase();
+  if (text.includes('full') || text.includes('mern') || text.includes('stack')) return 'fullstack';
+  if (text.includes('api') || text.includes('express') || text.includes('backend') || text.includes('server')) return 'api';
+  if (text.includes('react') || text.includes('vue') || text.includes('frontend') || text.includes('css') || text.includes('ui')) return 'frontend';
+  return 'backend';
+}
 
 async function fetchProjects() {
   if (!projectsGrid) return;
@@ -34,18 +47,20 @@ async function fetchProjects() {
     if (!response.ok) throw new Error('Falha ao carregar repositórios.');
 
     const repos = await response.json();
-    const selected = repos.slice(0, 8).map((repo) => {
+    allProjects = repos.slice(0, 12).map((repo) => {
       const custom = projectMetadata[repo.name] || {};
+      const tags = custom.tags || [repo.language || 'Projeto Web'];
       return {
         title: repo.name,
         description: custom.description || repo.description || 'Projeto desenvolvido com foco em aprendizado e entrega prática.',
         image: custom.image || fallbackImage,
-        tags: custom.tags || [repo.language || 'Projeto Web'],
+        tags,
+        category: custom.category || guessCategory(repo, tags),
         url: repo.html_url
       };
     });
 
-    renderProjects(selected);
+    renderProjects(allProjects);
   } catch (error) {
     projectsGrid.innerHTML = `<p class="muted">Não foi possível carregar projetos no momento: ${error.message}</p>`;
   }
@@ -53,6 +68,11 @@ async function fetchProjects() {
 
 function renderProjects(projects) {
   projectsGrid.innerHTML = '';
+  if (!projects.length) {
+    projectsGrid.innerHTML = '<p class="muted">Nenhum projeto encontrado para este filtro.</p>';
+    return;
+  }
+
   projects.forEach((project) => {
     const card = document.createElement('article');
     card.className = 'project-card reveal';
@@ -67,11 +87,31 @@ function renderProjects(projects) {
     `;
     projectsGrid.appendChild(card);
   });
+
   initReveal();
 }
 
+function initProjectFilters() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const filter = button.dataset.filter;
+      filterButtons.forEach((btn) => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      if (filter === 'all') {
+        renderProjects(allProjects);
+        return;
+      }
+
+      const filtered = allProjects.filter((project) => project.category === filter);
+      renderProjects(filtered);
+    });
+  });
+}
+
 function initReveal() {
-  const elements = document.querySelectorAll('.panel, .project-card, .hero-text, h2, .tech-pills');
+  const elements = document.querySelectorAll('.panel, .project-card, .hero-text, h2, .tech-pills, .timeline-item');
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -94,7 +134,6 @@ function initNavbar() {
   });
 
   navToggle?.addEventListener('click', () => navMenu?.classList.toggle('active'));
-
   document.querySelectorAll('.nav-link').forEach((link) => {
     link.addEventListener('click', () => navMenu?.classList.remove('active'));
   });
@@ -121,8 +160,8 @@ function initStarfield() {
     starfield.width = window.innerWidth;
     starfield.height = window.innerHeight;
     stars.length = 0;
-
     const total = Math.floor((window.innerWidth * window.innerHeight) / 9000);
+
     for (let i = 0; i < total; i += 1) {
       stars.push({
         x: Math.random() * starfield.width,
@@ -136,7 +175,6 @@ function initStarfield() {
 
   function draw() {
     ctx.clearRect(0, 0, starfield.width, starfield.height);
-
     for (const s of stars) {
       s.a += s.t;
       if (s.a > 1 || s.a < 0.1) s.t *= -1;
@@ -145,7 +183,6 @@ function initStarfield() {
       ctx.fillStyle = `rgba(225,237,255,${Math.max(0.15, s.a)})`;
       ctx.fill();
     }
-
     requestAnimationFrame(draw);
   }
 
@@ -158,6 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initHeroParallax();
   initStarfield();
+  initProjectFilters();
   fetchProjects();
   initReveal();
   if (currentYear) currentYear.textContent = new Date().getFullYear();
