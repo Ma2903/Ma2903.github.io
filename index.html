@@ -21,6 +21,7 @@
       <a href="#home" class="logo"><span>M</span>anoela</a>
       <div class="nav-menu" id="nav-menu">
         <a href="#about" class="nav-link">Sobre</a>
+        <a href="#timeline" class="nav-link">Jornada</a>
         <a href="#skills" class="nav-link">Habilidades</a>
         <a href="#projects" class="nav-link">Projetos</a>
         <a href="#contact" class="nav-link">Contato</a>
@@ -43,7 +44,7 @@
             <a class="btn btn-secondary" href="currículo Manoela Pinheiro da Silva.pdf" download>Baixar currículo</a>
           </div>
           <div class="tech-pills">
-            <span>⚛ React</span><span>🟢 Node.js</span><span>🧩 Vue</span><span>🔐 JWT/OAuth</span>
+            <span>⚛ React</span><span>🟢 Node.js</span><span>🧩 Vue</span><span>🔐 JWT/OAuth</span><span>🌐 Inglês B1</span>
           </div>
         </div>
 
@@ -83,6 +84,29 @@
       </div>
     </section>
 
+    <section id="timeline" class="section">
+      <div class="container">
+        <h2>🗓 Linha do tempo acadêmica</h2>
+        <div class="timeline">
+          <article class="timeline-item panel glow-panel">
+            <span class="timeline-year">Ensino Médio Técnico</span>
+            <h3>Técnico em Desenvolvimento de Sistemas</h3>
+            <p>Base sólida em programação, lógica, bancos de dados e desenvolvimento web durante o ensino médio técnico.</p>
+          </article>
+          <article class="timeline-item panel glow-panel">
+            <span class="timeline-year">2025</span>
+            <h3>Tecnóloga em Análise e Desenvolvimento de Sistemas</h3>
+            <p>Formação superior concluída em ADS, reforçando arquitetura de software, APIs, metodologias ágeis e visão full-stack.</p>
+          </article>
+          <article class="timeline-item panel glow-panel">
+            <span class="timeline-year">Inglês B1</span>
+            <h3>Formação em Inglês</h3>
+            <p>Leitura de documentação técnica internacional, estudos de conteúdo global e comunicação técnica funcional.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section id="skills" class="section">
       <div class="container">
         <h2>✨ Habilidades & Conhecimentos</h2>
@@ -96,12 +120,20 @@
         </div>
       </div>
     </section>
-  </main>
 
     <section id="projects" class="section">
       <div class="container">
         <h2>🚀 Projetos em destaque</h2>
         <p class="muted">Projetos acadêmicos e pessoais cobrindo frontend, backend, integrações e entrega completa.</p>
+
+        <div class="project-filters" id="project-filters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="frontend">Frontend</button>
+          <button class="filter-btn" data-filter="backend">Backend</button>
+          <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+          <button class="filter-btn" data-filter="api">API</button>
+        </div>
+
         <div id="projects-grid" class="projects-grid"></div>
       </div>
     </section>
@@ -114,6 +146,7 @@
           <a class="btn btn-primary" href="mailto:manoelap2903@gmail.com">📧 Email</a>
           <a class="btn btn-secondary" href="https://github.com/Ma2903" target="_blank" rel="noopener">🐙 GitHub</a>
           <a class="btn btn-secondary" href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" rel="noopener">💼 LinkedIn</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/manoelaps/" target="_blank" rel="noopener">🌐 LinkedIn (atual)</a>
         </div>
       </div>
     </section>
