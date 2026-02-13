@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="moon-haze" aria-hidden="true"></div>
+
   <header class="header" id="header">
     <nav class="nav container">
       <a href="#home" class="logo"><span>M</span>anoela</a>
@@ -31,20 +34,33 @@
       <div class="container hero-grid">
         <div>
           <p class="eyebrow">Desenvolvedora Full-Stack Júnior</p>
-          <h1>Frontend limpo, marcante e com <span>experiência memorável</span>.</h1>
+          <h1>Frontend com vibe lunar: <span>suave aos olhos, forte em resultado</span>.</h1>
           <p class="hero-text">
-            Crio produtos web com JavaScript/TypeScript e Node.js, conectando design, performance e visão de produto para transformar ideias em interfaces bonitas e funcionais.
+            Construo produtos web com JavaScript/TypeScript e Node.js, unindo design limpo, animações refinadas e experiência do usuário para transformar ideias em interfaces marcantes.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects">Ver projetos</a>
             <a class="btn btn-secondary" href="currículo Manoela Pinheiro da Silva.pdf" download>Baixar currículo</a>
           </div>
+          <div class="tech-pills">
+            <span>⚛ React</span><span>🟢 Node.js</span><span>🧩 Vue</span><span>🔐 JWT/OAuth</span>
+          </div>
         </div>
+
         <div class="hero-visual" id="hero-visual" aria-hidden="true">
-          <div class="orb orb-core"></div>
-          <div class="orb orb-ring"></div>
-          <div class="orb orb-glow"></div>
-          <div class="hero-card">React • Vue • Node • UX</div>
+          <div class="moon-core"></div>
+          <div class="moon-crater crater-1"></div>
+          <div class="moon-crater crater-2"></div>
+          <div class="moon-crater crater-3"></div>
+          <div class="moon-ring"></div>
+          <div class="moon-glow"></div>
+
+          <div class="floating-icon icon-a">⚛</div>
+          <div class="floating-icon icon-b">🟩</div>
+          <div class="floating-icon icon-c">🧠</div>
+          <div class="floating-icon icon-d">💡</div>
+
+          <div class="hero-card">UI • UX • Frontend • Performance</div>
         </div>
       </div>
     </section>
@@ -52,8 +68,8 @@
     <section id="about" class="section">
       <div class="container two-columns">
         <img src="eu.jfif" alt="Foto de Manoela Pinheiro" class="profile" />
-        <article class="panel">
-          <h2>Sobre mim</h2>
+        <article class="panel glow-panel">
+          <h2>🌙 Sobre mim</h2>
           <p>
             Sou Desenvolvedora Full-Stack Júnior, com foco principal em JavaScript/TypeScript e Node.js, atuando no frontend e backend. No frontend, trabalho com HTML, CSS, JavaScript/TypeScript, Vue.js e React.js, com atenção à semântica, responsividade e clareza visual.
           </p>
@@ -61,7 +77,7 @@
             No backend, desenvolvo APIs REST com Node.js e Express, autenticação JWT/OAuth, integração com MongoDB (Mongoose) e MySQL, além de uso de WebSockets para tempo real. Tenho experiência com arquitetura MVC e estou estudando microserviços.
           </p>
           <p>
-            Em colaboração, já atuei como Product Owner, Scrum Master e Desenvolvedora, usando Scrum, Kanban, XP, Jira, Trello e Azure DevOps. Tenho comunicação forte, liderança colaborativa e organização de equipe orientada a entrega.
+            Já atuei como Product Owner, Scrum Master e Desenvolvedora usando Scrum, Kanban, XP, Jira, Trello e Azure DevOps, com comunicação forte, liderança colaborativa e foco em entrega.
           </p>
         </article>
       </div>
@@ -69,52 +85,35 @@
 
     <section id="skills" class="section">
       <div class="container">
-        <h2>Habilidades & Conhecimentos</h2>
+        <h2>✨ Habilidades & Conhecimentos</h2>
         <div class="skills-grid">
-          <article class="panel">
-            <h3>Frontend</h3>
-            <p>HTML, CSS, JavaScript, TypeScript, React.js, Vue.js, componentização, UI/UX e acessibilidade.</p>
-          </article>
-          <article class="panel">
-            <h3>Backend</h3>
-            <p>Node.js, Express, APIs REST, JWT, OAuth, WebSockets, arquitetura MVC e fundamentos de microserviços.</p>
-          </article>
-          <article class="panel">
-            <h3>Banco de Dados</h3>
-            <p>MySQL, SQLite, MongoDB, modelagem de dados, triggers e procedures (nível básico).</p>
-          </article>
-          <article class="panel">
-            <h3>DevOps e Ferramentas</h3>
-            <p>Git, GitHub, GitHub Actions, GitHub Pages, estudos em Docker, VirtualBox e Cloud (Azure, AWS, GCP).</p>
-          </article>
-          <article class="panel">
-            <h3>Outras linguagens</h3>
-            <p>PHP (intermediário), C# (básico-intermediário), Python (básico) e C++ introdutório.</p>
-          </article>
-          <article class="panel">
-            <h3>Soft skills</h3>
-            <p>Comunicação, liderança colaborativa, planejamento, estimativa, organização e gestão de conflitos.</p>
-          </article>
+          <article class="panel skill-panel"><h3>🎨 Frontend</h3><p>HTML, CSS, JavaScript, TypeScript, React.js, Vue.js, componentização, UI/UX e acessibilidade.</p></article>
+          <article class="panel skill-panel"><h3>🧱 Backend</h3><p>Node.js, Express, APIs REST, JWT, OAuth, WebSockets, arquitetura MVC e fundamentos de microserviços.</p></article>
+          <article class="panel skill-panel"><h3>🗃 Banco de Dados</h3><p>MySQL, SQLite, MongoDB, modelagem de dados, triggers e procedures (nível básico).</p></article>
+          <article class="panel skill-panel"><h3>⚙ DevOps & Ferramentas</h3><p>Git, GitHub, GitHub Actions, GitHub Pages, estudos em Docker, VirtualBox e Cloud (Azure, AWS, GCP).</p></article>
+          <article class="panel skill-panel"><h3>🧪 Outras linguagens</h3><p>PHP (intermediário), C# (básico-intermediário), Python (básico) e C++ introdutório.</p></article>
+          <article class="panel skill-panel"><h3>🤝 Soft skills</h3><p>Comunicação, liderança colaborativa, planejamento, estimativa, organização e gestão de conflitos.</p></article>
         </div>
       </div>
     </section>
+  </main>
 
     <section id="projects" class="section">
       <div class="container">
-        <h2>Projetos em destaque</h2>
+        <h2>🚀 Projetos em destaque</h2>
         <p class="muted">Projetos acadêmicos e pessoais cobrindo frontend, backend, integrações e entrega completa.</p>
         <div id="projects-grid" class="projects-grid"></div>
       </div>
     </section>
 
     <section id="contact" class="section">
-      <div class="container panel contact-panel">
-        <h2>Vamos conversar?</h2>
+      <div class="container panel contact-panel glow-panel">
+        <h2>💬 Vamos conversar?</h2>
         <p>Disponível para oportunidades em desenvolvimento web com foco em frontend e experiência do usuário.</p>
         <div class="contact-links">
-          <a class="btn btn-primary" href="mailto:manoelap2903@gmail.com">Email</a>
-          <a class="btn btn-secondary" href="https://github.com/Ma2903" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn btn-secondary" href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-primary" href="mailto:manoelap2903@gmail.com">📧 Email</a>
+          <a class="btn btn-secondary" href="https://github.com/Ma2903" target="_blank" rel="noopener">🐙 GitHub</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" rel="noopener">💼 LinkedIn</a>
         </div>
       </div>
     </section>

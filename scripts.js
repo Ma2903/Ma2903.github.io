@@ -4,6 +4,7 @@ const navMenu = document.getElementById('nav-menu');
 const projectsGrid = document.getElementById('projects-grid');
 const currentYear = document.getElementById('current-year');
 const heroVisual = document.getElementById('hero-visual');
+const starfield = document.getElementById('starfield');
 
 const projectMetadata = {
   'Ecommerce-React-Node': {
@@ -58,7 +59,7 @@ function renderProjects(projects) {
     card.innerHTML = `
       <img src="${project.image}" alt="Preview do projeto ${project.title}" loading="lazy" />
       <div class="project-content">
-        <h3>${project.title}</h3>
+        <h3>🛰 ${project.title}</h3>
         <p>${project.description}</p>
         <div class="project-tags">${project.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join('')}</div>
         <p style="margin-top:.85rem;"><a class="btn btn-secondary" href="${project.url}" target="_blank" rel="noopener">Ver no GitHub</a></p>
@@ -70,7 +71,7 @@ function renderProjects(projects) {
 }
 
 function initReveal() {
-  const elements = document.querySelectorAll('.panel, .project-card, .hero-text, h2');
+  const elements = document.querySelectorAll('.panel, .project-card, .hero-text, h2, .tech-pills');
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -103,15 +104,60 @@ function initHeroParallax() {
   if (!heroVisual) return;
 
   window.addEventListener('mousemove', (event) => {
-    const x = (event.clientX / window.innerWidth - 0.5) * 14;
-    const y = (event.clientY / window.innerHeight - 0.5) * -14;
+    const x = (event.clientX / window.innerWidth - 0.5) * 12;
+    const y = (event.clientY / window.innerHeight - 0.5) * -12;
     heroVisual.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
   });
+}
+
+function initStarfield() {
+  if (!starfield) return;
+  const ctx = starfield.getContext('2d');
+  if (!ctx) return;
+
+  const stars = [];
+
+  function resize() {
+    starfield.width = window.innerWidth;
+    starfield.height = window.innerHeight;
+    stars.length = 0;
+
+    const total = Math.floor((window.innerWidth * window.innerHeight) / 9000);
+    for (let i = 0; i < total; i += 1) {
+      stars.push({
+        x: Math.random() * starfield.width,
+        y: Math.random() * starfield.height,
+        r: Math.random() * 1.7,
+        a: Math.random(),
+        t: Math.random() * 0.02 + 0.004
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, starfield.width, starfield.height);
+
+    for (const s of stars) {
+      s.a += s.t;
+      if (s.a > 1 || s.a < 0.1) s.t *= -1;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(225,237,255,${Math.max(0.15, s.a)})`;
+      ctx.fill();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  draw();
+  window.addEventListener('resize', resize);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initHeroParallax();
+  initStarfield();
   fetchProjects();
   initReveal();
   if (currentYear) currentYear.textContent = new Date().getFullYear();
