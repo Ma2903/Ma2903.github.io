@@ -5,6 +5,8 @@ const projectsGrid = document.getElementById('projects-grid');
 const currentYear = document.getElementById('current-year');
 const heroVisual = document.getElementById('hero-visual');
 const starfield = document.getElementById('starfield');
+const projectSearch = document.getElementById('project-search');
+const backToTop = document.getElementById('back-to-top');
 
 const projectMetadata = {
   'Ecommerce-React-Node': {
@@ -28,6 +30,7 @@ const projectMetadata = {
 };
 
 let allProjects = [];
+let activeFilter = 'all';
 
 function guessCategory(repo, tags) {
   const text = `${repo.name} ${repo.description || ''} ${tags.join(' ')}`.toLowerCase();
@@ -47,7 +50,7 @@ async function fetchProjects() {
     if (!response.ok) throw new Error('Falha ao carregar repositórios.');
 
     const repos = await response.json();
-    allProjects = repos.slice(0, 12).map((repo) => {
+    allProjects = repos.slice(0, 16).map((repo) => {
       const custom = projectMetadata[repo.name] || {};
       const tags = custom.tags || [repo.language || 'Projeto Web'];
       return {
@@ -60,7 +63,7 @@ async function fetchProjects() {
       };
     });
 
-    renderProjects(allProjects);
+    applyProjectFilters();
   } catch (error) {
     projectsGrid.innerHTML = `<p class="muted">Não foi possível carregar projetos no momento: ${error.message}</p>`;
   }
@@ -69,7 +72,7 @@ async function fetchProjects() {
 function renderProjects(projects) {
   projectsGrid.innerHTML = '';
   if (!projects.length) {
-    projectsGrid.innerHTML = '<p class="muted">Nenhum projeto encontrado para este filtro.</p>';
+    projectsGrid.innerHTML = '<p class="muted">Nenhum projeto encontrado para este filtro/busca.</p>';
     return;
   }
 
@@ -91,23 +94,28 @@ function renderProjects(projects) {
   initReveal();
 }
 
+function applyProjectFilters() {
+  const query = (projectSearch?.value || '').trim().toLowerCase();
+  const byCategory = activeFilter === 'all' ? allProjects : allProjects.filter((project) => project.category === activeFilter);
+  const filtered = byCategory.filter((project) => {
+    if (!query) return true;
+    return `${project.title} ${project.description} ${project.tags.join(' ')}`.toLowerCase().includes(query);
+  });
+  renderProjects(filtered);
+}
+
 function initProjectFilters() {
   const filterButtons = document.querySelectorAll('.filter-btn');
   filterButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      const filter = button.dataset.filter;
+      activeFilter = button.dataset.filter || 'all';
       filterButtons.forEach((btn) => btn.classList.remove('active'));
       button.classList.add('active');
-
-      if (filter === 'all') {
-        renderProjects(allProjects);
-        return;
-      }
-
-      const filtered = allProjects.filter((project) => project.category === filter);
-      renderProjects(filtered);
+      applyProjectFilters();
     });
   });
+
+  projectSearch?.addEventListener('input', applyProjectFilters);
 }
 
 function initReveal() {
@@ -131,17 +139,25 @@ function initNavbar() {
   window.addEventListener('scroll', () => {
     if (window.scrollY > 12) header.classList.add('scrolled');
     else header.classList.remove('scrolled');
+
+    if (backToTop) {
+      if (window.scrollY > 420) backToTop.classList.add('show');
+      else backToTop.classList.remove('show');
+    }
   });
 
   navToggle?.addEventListener('click', () => navMenu?.classList.toggle('active'));
   document.querySelectorAll('.nav-link').forEach((link) => {
     link.addEventListener('click', () => navMenu?.classList.remove('active'));
   });
+
+  backToTop?.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 }
 
 function initHeroParallax() {
   if (!heroVisual) return;
-
   window.addEventListener('mousemove', (event) => {
     const x = (event.clientX / window.innerWidth - 0.5) * 12;
     const y = (event.clientY / window.innerHeight - 0.5) * -12;
@@ -155,21 +171,13 @@ function initStarfield() {
   if (!ctx) return;
 
   const stars = [];
-
   function resize() {
     starfield.width = window.innerWidth;
     starfield.height = window.innerHeight;
     stars.length = 0;
     const total = Math.floor((window.innerWidth * window.innerHeight) / 9000);
-
     for (let i = 0; i < total; i += 1) {
-      stars.push({
-        x: Math.random() * starfield.width,
-        y: Math.random() * starfield.height,
-        r: Math.random() * 1.7,
-        a: Math.random(),
-        t: Math.random() * 0.02 + 0.004
-      });
+      stars.push({ x: Math.random() * starfield.width, y: Math.random() * starfield.height, r: Math.random() * 1.7, a: Math.random(), t: Math.random() * 0.02 + 0.004 });
     }
   }
 
