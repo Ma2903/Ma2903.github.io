@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manoela Pinheiro | Portfólio Full-Stack</title>
-  <meta name="description" content="Portfólio de Manoela Pinheiro, desenvolvedora full-stack com foco em frontend, experiências modernas e projetos reais." />
+  <meta name="description" content="Portfólio de Manoela Pinheiro com foco em frontend, experiência visual, animações e projetos full-stack." />
   <meta name="keywords" content="Manoela Pinheiro, Portfolio, Frontend, React, Vue, Node.js, Full Stack" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -55,12 +55,10 @@
           <div class="moon-crater crater-3"></div>
           <div class="moon-ring"></div>
           <div class="moon-glow"></div>
-
           <div class="floating-icon icon-a">⚛</div>
           <div class="floating-icon icon-b">🟩</div>
           <div class="floating-icon icon-c">🧠</div>
           <div class="floating-icon icon-d">💡</div>
-
           <div class="hero-card">UI • UX • Frontend • Performance</div>
         </div>
       </div>
@@ -71,15 +69,9 @@
         <img src="eu.jfif" alt="Foto de Manoela Pinheiro" class="profile" />
         <article class="panel glow-panel">
           <h2>🌙 Sobre mim</h2>
-          <p>
-            Sou Desenvolvedora Full-Stack Júnior, com foco principal em JavaScript/TypeScript e Node.js, atuando no frontend e backend. No frontend, trabalho com HTML, CSS, JavaScript/TypeScript, Vue.js e React.js, com atenção à semântica, responsividade e clareza visual.
-          </p>
-          <p>
-            No backend, desenvolvo APIs REST com Node.js e Express, autenticação JWT/OAuth, integração com MongoDB (Mongoose) e MySQL, além de uso de WebSockets para tempo real. Tenho experiência com arquitetura MVC e estou estudando microserviços.
-          </p>
-          <p>
-            Já atuei como Product Owner, Scrum Master e Desenvolvedora usando Scrum, Kanban, XP, Jira, Trello e Azure DevOps, com comunicação forte, liderança colaborativa e foco em entrega.
-          </p>
+          <p>Sou Desenvolvedora Full-Stack Júnior, com foco principal em JavaScript/TypeScript e Node.js, atuando no frontend e backend.</p>
+          <p>No frontend, trabalho com HTML, CSS, JavaScript/TypeScript, Vue.js e React.js, com atenção à semântica, responsividade e clareza visual.</p>
+          <p>No backend, desenvolvo APIs REST com Node.js e Express, autenticação JWT/OAuth, integração com MongoDB (Mongoose) e MySQL, além de WebSockets para tempo real. Já atuei como PO, Scrum Master e Dev em ambientes ágeis.</p>
         </article>
       </div>
     </section>
@@ -87,21 +79,26 @@
     <section id="timeline" class="section">
       <div class="container">
         <h2>🗓 Linha do tempo acadêmica</h2>
-        <div class="timeline">
+        <div class="timeline-vertical">
           <article class="timeline-item panel glow-panel">
-            <span class="timeline-year">Ensino Médio Técnico</span>
-            <h3>Técnico em Desenvolvimento de Sistemas</h3>
-            <p>Base sólida em programação, lógica, bancos de dados e desenvolvimento web durante o ensino médio técnico.</p>
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <span class="timeline-year">2021 — 2023</span>
+            <h3>Ensino Médio com Técnico em Desenvolvimento de Sistemas</h3>
+            <p>Formação técnica com base em lógica, desenvolvimento web, versionamento e fundamentos de banco de dados.</p>
           </article>
+
           <article class="timeline-item panel glow-panel">
-            <span class="timeline-year">2025</span>
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <span class="timeline-year">2024 — 2025</span>
             <h3>Tecnóloga em Análise e Desenvolvimento de Sistemas</h3>
-            <p>Formação superior concluída em ADS, reforçando arquitetura de software, APIs, metodologias ágeis e visão full-stack.</p>
+            <p>Graduação em ADS com aprofundamento em APIs, arquitetura, engenharia de software e metodologias ágeis.</p>
           </article>
+
           <article class="timeline-item panel glow-panel">
-            <span class="timeline-year">Inglês B1</span>
-            <h3>Formação em Inglês</h3>
-            <p>Leitura de documentação técnica internacional, estudos de conteúdo global e comunicação técnica funcional.</p>
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <span class="timeline-year">Finalizado em 2023</span>
+            <h3>Formação em Inglês (B1)</h3>
+            <p>Leitura de documentação técnica internacional e comunicação funcional para estudos e trabalho em tecnologia.</p>
           </article>
         </div>
       </div>
@@ -126,12 +123,15 @@
         <h2>🚀 Projetos em destaque</h2>
         <p class="muted">Projetos acadêmicos e pessoais cobrindo frontend, backend, integrações e entrega completa.</p>
 
-        <div class="project-filters" id="project-filters">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="frontend">Frontend</button>
-          <button class="filter-btn" data-filter="backend">Backend</button>
-          <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
-          <button class="filter-btn" data-filter="api">API</button>
+        <div class="project-toolbar">
+          <div class="project-filters" id="project-filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="frontend">Frontend</button>
+            <button class="filter-btn" data-filter="backend">Backend</button>
+            <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+            <button class="filter-btn" data-filter="api">API</button>
+          </div>
+          <input id="project-search" class="project-search" type="search" placeholder="Buscar projeto por nome ou tecnologia..." aria-label="Buscar projeto" />
         </div>
 
         <div id="projects-grid" class="projects-grid"></div>
@@ -151,6 +151,8 @@
       </div>
     </section>
   </main>
+
+  <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo">↑</button>
 
   <footer class="footer">
     <p>© <span id="current-year"></span> Manoela Pinheiro. Feito com carinho e foco em experiência visual.</p>
