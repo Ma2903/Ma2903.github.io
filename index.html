@@ -1,669 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manoela Pinheiro - Desenvolvedora Web Full-Stack | React, Node.js, SQL/NoSQL</title>
-    
-    <meta name="description" content="Portfólio de Manoela Pinheiro, desenvolvedora web especializada em criar aplicações modernas com React e Node.js.">
-    <meta name="keywords" content="Manoela Pinheiro, Desenvolvedora Web, Full-Stack, React, Node.js, Portfólio">
-    
-    <link rel="icon" type="image/png" href="favicon.png">
-
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manoela Pinheiro | Portfólio Full-Stack</title>
+  <meta name="description" content="Portfólio de Manoela Pinheiro com foco em frontend, experiência visual, animações e projetos full-stack." />
+  <meta name="keywords" content="Manoela Pinheiro, Portfolio, Frontend, React, Vue, Node.js, Full Stack" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <header class="header" id="header">
-        <nav class="nav">
-            <div class="nav-brand">
-                <span class="brand-highlight">M</span>anoela
-            </div>
-            
-            <div class="nav-menu" id="nav-menu">
-                <a href="#about" class="nav-link">Sobre</a>
-                <a href="#education" class="nav-link">Formação</a> <a href="#skills" class="nav-link">Habilidades</a>
-                <a href="#projects" class="nav-link">Projetos</a>
-                <a href="#contact" class="nav-link">Contato</a>
-            </div>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="moon-haze" aria-hidden="true"></div>
 
-            <div class="nav-social">
-                <a href="https://github.com/Ma2903" target="_blank" class="social-link" aria-label="GitHub">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                    </svg>
-                </a>
-                <a href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" class="social-link" aria-label="LinkedIn">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                         <rect x="2" y="9" width="4" height="12"/>
-                         <circle cx="4" cy="4" r="2"/>
-                    </svg>
-                </a>
-            </div>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#home" class="logo"><span>M</span>anoela</a>
+      <div class="nav-menu" id="nav-menu">
+        <a href="#about" class="nav-link">Sobre</a>
+        <a href="#timeline" class="nav-link">Jornada</a>
+        <a href="#skills" class="nav-link">Habilidades</a>
+        <a href="#projects" class="nav-link">Projetos</a>
+        <a href="#contact" class="nav-link">Contato</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">☰</button>
+    </nav>
+  </header>
 
-            <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </nav>
-    </header>
+  <main id="home">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Desenvolvedora Full-Stack Júnior</p>
+          <h1>Frontend com vibe lunar: <span>suave aos olhos, forte em resultado</span>.</h1>
+          <p class="hero-text">
+            Construo produtos web com JavaScript/TypeScript e Node.js, unindo design limpo, animações refinadas e experiência do usuário para transformar ideias em interfaces marcantes.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">Ver projetos</a>
+            <a class="btn btn-secondary" href="currículo Manoela Pinheiro da Silva.pdf" download>Baixar currículo</a>
+          </div>
+          <div class="tech-pills">
+            <span>⚛ React</span><span>🟢 Node.js</span><span>🧩 Vue</span><span>🔐 JWT/OAuth</span><span>🌐 Inglês B1</span>
+          </div>
+        </div>
 
-    <section class="hero" id="hero">
-        <div class="hero-bg">
-            <div class="hero-shape hero-shape-1"></div>
-            <div class="hero-shape hero-shape-2"></div>
-            <div class="hero-shape hero-shape-3"></div>
+        <div class="hero-visual" id="hero-visual" aria-hidden="true">
+          <div class="moon-core"></div>
+          <div class="moon-crater crater-1"></div>
+          <div class="moon-crater crater-2"></div>
+          <div class="moon-crater crater-3"></div>
+          <div class="moon-ring"></div>
+          <div class="moon-glow"></div>
+
+          <div class="floating-icon icon-a">⚛</div>
+          <div class="floating-icon icon-b">🟩</div>
+          <div class="floating-icon icon-c">🧠</div>
+          <div class="floating-icon icon-d">💡</div>
+
+          <div class="hero-card">UI • UX • Frontend • Performance</div>
         </div>
-        
-        <div class="hero-content">
-            
-            <h1 class="hero-title">
-                Desenvolvedora <span class="hero-name">Full-Stack</span> Apaixonada por Design & Experiência do Usuário.
-            </h1>
-            
-            <p class="hero-subtitle">
-                Com foco em criar aplicações web interativas e visualmente agradáveis, unindo código de qualidade com um olhar apurado para UI/UX.
-            </p>
-            
-            <div class="hero-buttons">
-                <button class="btn btn-primary" onclick="scrollToSection('projects')">
-                    Ver Projetos
-                </button>
-                <button class="btn btn-secondary" onclick="scrollToSection('contact')">
-                    Vamos Conversar
-                </button>
-            </div>
-        </div>
-        
-        <div class="scroll-indicator" onclick="scrollToSection('about')">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6,9 12,15 18,9"/>
-            </svg>
-        </div>
+      </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Sobre <span class="highlight">Mim</span></h2>
-                <p class="section-subtitle">
-                    Desenvolvedora apaixonada pelo que faz, com amor por criar soluções inovadoras.
-                </p>
-            </div>
-            
-            <div class="about-content">
-            <div class="about-image-container">
-                <img src="eu.jfif" alt="Manoela Pinheiro" class="about-photo">
-            </div>
-
-            <div class="about-text-container">
-                <div class="card">
-                    <h3>Desenvolvedora Full-Stack com visão de produto</h3>
-                    <p>
-                        Sou uma desenvolvedora Full-Stack com foco em criar aplicações completas, do back-end à interface. Minha paixão é combinar a lógica da programação com Design de Interfaces (UI) e Experiência do Usuário (UX) para construir produtos que sejam não apenas funcionais, mas também intuitivos e bonitos.
-                    </p>
-                    
-                    <a href="currículo Manoela Pinheiro da Silva.pdf" download="Curriculo_Manoela_Pinheiro.pdf" class="btn btn-primary" style="margin-bottom: 1.5rem;">
-                        Baixar Currículo
-                    </a>
-            
-                    <ul>
-                        <li style="margin-bottom: 1rem;">
-                            <strong>Liderança e Metodologias Ágeis:</strong> Além do código, já atuei em papéis como <strong>Product Owner e Scrum Master</strong>, liderando o planejamento de sprints, divisão de tarefas e gestão de conflitos.
-                        </li>
-                        <li style="margin-bottom: 1rem;">
-                            <strong>Conquistas e Destaques:</strong>  Tive a oportunidade de ser <strong>palestrante em minicursos</strong> sobre comunicação em tempo real com Socket.io e Node.js.
-                        </li>
-                        <li>
-                            <strong>Objetivo Profissional:</strong> Busco uma oportunidade como Desenvolvedora Full-Stack, onde eu possa aplicar minha visão de produto e habilidades técnicas para construir e escalar soluções inovadoras.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        </div>
+    <section id="about" class="section">
+      <div class="container two-columns">
+        <img src="eu.jfif" alt="Foto de Manoela Pinheiro" class="profile" />
+        <article class="panel glow-panel">
+          <h2>🌙 Sobre mim</h2>
+          <p>
+            Sou Desenvolvedora Full-Stack Júnior, com foco principal em JavaScript/TypeScript e Node.js, atuando no frontend e backend. No frontend, trabalho com HTML, CSS, JavaScript/TypeScript, Vue.js e React.js, com atenção à semântica, responsividade e clareza visual.
+          </p>
+          <p>
+            No backend, desenvolvo APIs REST com Node.js e Express, autenticação JWT/OAuth, integração com MongoDB (Mongoose) e MySQL, além de uso de WebSockets para tempo real. Tenho experiência com arquitetura MVC e estou estudando microserviços.
+          </p>
+          <p>
+            Já atuei como Product Owner, Scrum Master e Desenvolvedora usando Scrum, Kanban, XP, Jira, Trello e Azure DevOps, com comunicação forte, liderança colaborativa e foco em entrega.
+          </p>
+        </article>
+      </div>
     </section>
 
-    <section class="education" id="education">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Formação <span class="highlight">Acadêmica</span></h2>
-                <p class="section-subtitle">Minha jornada de aprendizado e desenvolvimento contínuo.</p>
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                        </svg>
-                    </div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">fev de 2024 - dez de 2025 (Previsto)</span>
-                        <h3>Tecnóloga em Análise e Desenvolvimento de Sistemas</h3>
-                        <p>Fatec Presidente Prudente</p>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                     <div class="timeline-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                        </svg>
-                    </div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">jan de 2021 - dez de 2023</span>
-                        <h3>Técnico em Desenvolvimento de Sistemas</h3>
-                        <p>Etec Prof Dr Antônio Eufrásio de Toledo</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                     <div class="timeline-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-                        </svg>
-                    </div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">fev de 2016 - ago de 2023</span>
-                        <h3>Ensino de Inglês como Segundo Idioma</h3>
-                        <p>Ccaa Pirapozinho</p>
-                    </div>
-                </div>
-            </div>
+    <section id="timeline" class="section">
+      <div class="container">
+        <h2>🗓 Linha do tempo acadêmica</h2>
+        <div class="timeline">
+          <article class="timeline-item panel glow-panel">
+            <span class="timeline-year">Ensino Médio Técnico</span>
+            <h3>Técnico em Desenvolvimento de Sistemas</h3>
+            <p>Base sólida em programação, lógica, bancos de dados e desenvolvimento web durante o ensino médio técnico.</p>
+          </article>
+          <article class="timeline-item panel glow-panel">
+            <span class="timeline-year">2025</span>
+            <h3>Tecnóloga em Análise e Desenvolvimento de Sistemas</h3>
+            <p>Formação superior concluída em ADS, reforçando arquitetura de software, APIs, metodologias ágeis e visão full-stack.</p>
+          </article>
+          <article class="timeline-item panel glow-panel">
+            <span class="timeline-year">Inglês B1</span>
+            <h3>Formação em Inglês</h3>
+            <p>Leitura de documentação técnica internacional, estudos de conteúdo global e comunicação técnica funcional.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <section class="skills" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Minhas <span class="highlight">Habilidades</span></h2>
-                <p class="section-subtitle">
-                    Tecnologias e ferramentas que uso para dar vida às ideias.
-                </p>
-            </div>
-            
-<div class="skills-grid">
-    <div class="skill-category">
-        <h3>Frontend</h3>
-        <div class="skills-list">
-            <div class="skill-item">
-                <div class="skill-info"><span>HTML/CSS</span><span>95%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="95"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>JavaScript</span><span>95%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="95"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>TypeScript</span><span>70%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="70"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>React</span><span>90%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="90"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Vue.js</span><span>90%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="90"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Tailwind CSS</span><span>90%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="90"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Bootstrap</span><span>85%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="85"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Bulma</span><span>90%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="90"></div></div>
-            </div>
+    <section id="skills" class="section">
+      <div class="container">
+        <h2>✨ Habilidades & Conhecimentos</h2>
+        <div class="skills-grid">
+          <article class="panel skill-panel"><h3>🎨 Frontend</h3><p>HTML, CSS, JavaScript, TypeScript, React.js, Vue.js, componentização, UI/UX e acessibilidade.</p></article>
+          <article class="panel skill-panel"><h3>🧱 Backend</h3><p>Node.js, Express, APIs REST, JWT, OAuth, WebSockets, arquitetura MVC e fundamentos de microserviços.</p></article>
+          <article class="panel skill-panel"><h3>🗃 Banco de Dados</h3><p>MySQL, SQLite, MongoDB, modelagem de dados, triggers e procedures (nível básico).</p></article>
+          <article class="panel skill-panel"><h3>⚙ DevOps & Ferramentas</h3><p>Git, GitHub, GitHub Actions, GitHub Pages, estudos em Docker, VirtualBox e Cloud (Azure, AWS, GCP).</p></article>
+          <article class="panel skill-panel"><h3>🧪 Outras linguagens</h3><p>PHP (intermediário), C# (básico-intermediário), Python (básico) e C++ introdutório.</p></article>
+          <article class="panel skill-panel"><h3>🤝 Soft skills</h3><p>Comunicação, liderança colaborativa, planejamento, estimativa, organização e gestão de conflitos.</p></article>
         </div>
-    </div>
-    <div class="skill-category">
-        <h3>Backend & Linguagens</h3>
-        <div class="skills-list">
-            <div class="skill-item">
-                <div class="skill-info"><span>PHP</span><span>80%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-purple" data-width="80"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Node.js</span><span>75%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-purple" data-width="75"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>C#</span><span>70%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-purple" data-width="70"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>C++</span><span>60%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-purple" data-width="60"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Python</span><span>60%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-purple" data-width="60"></div></div>
-            </div>
-        </div>
-    </div>
-    <div class="skill-category">
-        <h3>Bancos de Dados & Ferramentas</h3>
-        <div class="skills-list">
-            <div class="skill-item">
-                <div class="skill-info"><span>MySQL</span><span>80%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-yellow" data-width="80"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>MySQL Workbench</span><span>85%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-yellow" data-width="85"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>phpMyAdmin</span><span>80%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-yellow" data-width="80"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>MongoDB</span><span>70%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-yellow" data-width="70"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>MongoDB Compass</span><span>75%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-yellow" data-width="75"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>MongoDB Atlas</span><span>70%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-yellow" data-width="70"></div></div>
-            </div>
-        </div>
-    </div>
-    <div class="skill-category">
-        <h3>Metodologias & Colaboração</h3>
-        <div class="skills-list">
-            <div class="skill-item">
-                <div class="skill-info"><span>Scrum</span><span>90%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-teal" data-width="90"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Kanban</span><span>95%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-teal" data-width="95"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Git</span><span>90%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-teal" data-width="90"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>GitHub</span><span>95%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-teal" data-width="95"></div></div>
-            </div>
-        </div>
-    </div>
-    <div class="skill-category">
-        <h3>Ferramentas de Desenvolvimento & Design</h3>
-        <div class="skills-list">
-            <div class="skill-item">
-                <div class="skill-info"><span>VS Code</span><span>95%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="95"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Visual Studio</span><span>70%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="70"></div></div>
-            </div>
-             <div class="skill-item">
-                <div class="skill-info"><span>Figma</span><span>80%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="80"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Canva</span><span>95%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="95"></div></div>
-            </div>
-             <div class="skill-item">
-                <div class="skill-info"><span>Azure DevOps</span><span>85%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="85"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Trello</span><span>95%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="95"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Docker</span><span>60% (Aprendendo)</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-blue" data-width="60"></div></div>
-            </div>
-        </div>
-    </div>
-    <div class="skill-category">
-        <h3>Arquitetura & Conceitos</h3>
-        <div class="skills-list">
-            <div class="skill-item">
-                <div class="skill-info"><span>Arquitetura MVC</span><span>85%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-yellow" data-width="85"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>APIs REST</span><span>90%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-yellow" data-width="90"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>WebSockets</span><span>75%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-yellow" data-width="75"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>JWT / OAuth</span><span>70%</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-yellow" data-width="70"></div></div>
-            </div>
-            <div class="skill-item">
-                <div class="skill-info"><span>Microservices</span><span>50% (Aprendendo)</span></div>
-                <div class="skill-bar"><div class="skill-progress skill-progress-yellow" data-width="50"></div></div>
-            </div>
-        </div>
-    </div>
-</div>
-            
-            <div class="skills-footer">
-                <div class="learning-badge">
-                    <span>Sempre aprendendo novas tecnologias</span>
-                    <div class="pulse-dot"></div>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <section class="online-presence" id="github-stats">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Minha Presença <span class="highlight">Online</span></h2>
-                <p class="section-subtitle">
-                    Onde eu construo, colaboro e compartilho meu trabalho com a comunidade.
-                </p>
-            </div>
-            
-            <div class="presence-grid">
-                <div class="presence-card">
-                    <div class="presence-icon github-icon">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                           <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                        </svg>
-                    </div>
-                    <h3>GitHub</h3>
-                    <p class="presence-description">
-                        Meu hub principal para projetos de código aberto, estudos e colaborações.
-                    </p>
-                    <div class="presence-stats">
-                        <div class="stat">
-                            <span class="stat-number">20+</span>
-                            <span class="stat-label">Repositórios Públicos</span>
-                        </div>
-                    </div>
-                    <a href="https://github.com/Ma2903" target="_blank" class="btn btn-secondary">
-                        Seguir no GitHub
-                    </a>
-                </div>
+    <section id="projects" class="section">
+      <div class="container">
+        <h2>🚀 Projetos em destaque</h2>
+        <p class="muted">Projetos acadêmicos e pessoais cobrindo frontend, backend, integrações e entrega completa.</p>
 
-                <div class="presence-card">
-                    <div class="presence-icon linkedin-icon">
-                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                             <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                             <rect x="2" y="9" width="4" height="12"/>
-                             <circle cx="4" cy="4" r="2"/>
-                        </svg>
-                    </div>
-                    <h3>LinkedIn</h3>
-                    <p class="presence-description">
-                       Onde compartilho minha jornada profissional, conquistas e me conecto com a comunidade tech.
-                    </p>
-                     <div class="presence-stats">
-                        <div class="stat">
-                            <span class="stat-number">40+</span>
-                            <span class="stat-label">Conexões</span>
-                        </div>
-                    </div>
-                    <a href="https://www.linkedin.com/in/manoelaps/" target="_blank" class="btn btn-secondary">
-                        Conectar no LinkedIn
-                    </a>
-                </div>
-            </div>
+        <div class="project-filters" id="project-filters">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="frontend">Frontend</button>
+          <button class="filter-btn" data-filter="backend">Backend</button>
+          <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+          <button class="filter-btn" data-filter="api">API</button>
         </div>
+
+        <div id="projects-grid" class="projects-grid"></div>
+      </div>
     </section>
 
-   <section class="projects" id="projects">
-    <div class="container">
-        <div class="section-header">
-            <h2 class="section-title">Meus <span class="highlight">Projetos</span></h2>
-            <p class="section-subtitle">
-                Uma vitrine dos meus trabalhos recentes e projetos pessoais.
-            </p>
-            
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">
-                    Todos
-                </button>
-                <button class="filter-btn" data-filter="javascript">
-                    JavaScript
-                </button>
-                <button class="filter-btn" data-filter="react">
-                    React
-                </button>
-                <button class="filter-btn" data-filter="vue">
-                    Vue.js
-                </button>
-                <button class="filter-btn" data-filter="node.js">
-                    Node.js
-                </button>
-                <button class="filter-btn" data-filter="php">
-                    PHP
-                </button>
-                <button class="filter-btn" data-filter="sql">
-                    Database
-                </button>
-            </div>
+    <section id="contact" class="section">
+      <div class="container panel contact-panel glow-panel">
+        <h2>💬 Vamos conversar?</h2>
+        <p>Disponível para oportunidades em desenvolvimento web com foco em frontend e experiência do usuário.</p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:manoelap2903@gmail.com">📧 Email</a>
+          <a class="btn btn-secondary" href="https://github.com/Ma2903" target="_blank" rel="noopener">🐙 GitHub</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" rel="noopener">💼 LinkedIn</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/manoelaps/" target="_blank" rel="noopener">🌐 LinkedIn (atual)</a>
         </div>
-        
-        <div class="projects-grid" id="projects-grid">
-            </div>
-    
-        <div class="projects-footer">
-            <a href="https://github.com/Ma2903" target="_blank" class="btn btn-secondary">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                </svg>
-                Ver Mais no GitHub
-            </a>
-        </div>
-    </div>
-</section>
-
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Entre <span class="highlight">em Contato</span></h2>
-                <p class="section-subtitle">
-                    Vamos discutir seu projeto ou apenas dizer um olá. Estou sempre aberta a novas oportunidades.
-                </p>
-            </div>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="card">
-                        <h3>Informações de Contato</h3>
-                        
-                        <div class="contact-items">
-                            <div class="contact-item">
-                                <div class="contact-icon contact-icon-blue">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                        <polyline points="22,6 12,13 2,6"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p>Email</p>
-                                    <a href="mailto:manoelaps2022@gmail.com">manoelaps2022@gmail.com</a>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon contact-icon-purple">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p>Telefone</p>
-                                    <a href="tel:+5518996816585">+55 (18) 99681-6585</a>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-item">
-                                <div class="contact-icon contact-icon-teal">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                        <circle cx="12" cy="10" r="3"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p>Localização</p>
-                                    <span>Remoto / São Paulo, Brasil</span>
-                                </div>
-                            </div>
-                            <div class="contact-item">
-                                <div class="contact-icon contact-icon-purple">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                                         <rect x="2" y="9" width="4" height="12"/>
-                                         <circle cx="4" cy="4" r="2"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p>LinkedIn</p>
-                                    <a href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank">Conecte-se comigo no LinkedIn</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="social-section">
-                            <h4>Siga-me</h4>
-                            <div class="social-links">
-                                <a href="https://github.com/Ma2903" target="_blank" class="social-link" aria-label="GitHub">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                                    </svg>
-                                </a>
-                                <a href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" class="social-link" aria-label="LinkedIn">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                                        <rect x="2" y="9" width="4" height="12"/>
-                                        <circle cx="4" cy="4" r="2"/>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <div class="card">
-                        <h3>Envie uma Mensagem</h3>
-                        <form id="contact-form">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="name">Nome</label>
-                                    <input type="text" id="name" name="name" required placeholder="Seu nome">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" required placeholder="seu@email.com">
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="subject">Assunto</label>
-                                <input type="text" id="subject" name="subject" required placeholder="Discussão de projeto">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message">Mensagem</label>
-                                <textarea id="message" name="message" required rows="5" placeholder="Fale-me sobre seu projeto..."></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary btn-full">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="22" y1="2" x2="11" y2="13"/>
-                                    <polygon points="22,2 15,22 11,13 2,9 22,2"/>
-                                </svg>
-                                Enviar Mensagem
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
+  </main>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="brand">
-                        <span class="brand-highlight">M</span>anoela Pinheiro
-                    </div>
-                    <p>
-                        Desenvolvedora Web apaixonada por criar experiências digitais bonitas, funcionais e centradas no usuário.
-                    </p>
-                </div>
-                
-                <div class="footer-links">
-                    <h4>Links Rápidos</h4>
-                    <a class="nav-link" href="#about">Sobre</a>
-                    <a class="nav-link" href="#education">Formação</a> <a class="nav-link" href="#skills">Habilidades</a>
-                    <a class="nav-link" href="#projects">Projetos</a>
-                    <a class="nav-link" href="#contact">Contato</a>
-                </div>
-                
-                <div class="footer-contact">
-                    <h4>Entre em Contato</h4>
-                    <a href="mailto:manoelaps2022@gmail.com">manoelaps2022@gmail.com</a>
-                    <p>Remoto / São Paulo, Brasil</p>
-                    <div class="footer-social">
-                        <a href="https://github.com/Ma2903" target="_blank" aria-label="GitHub">
-                           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                               <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
-                           </svg>
-                       </a>
-                       <a href="https://www.linkedin.com/in/manoela-p-44aa75259/" target="_blank" aria-label="LinkedIn">
-                           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-                               <rect x="2" y="9" width="4" height="12"/>
-                               <circle cx="4" cy="4" r="2"/>
-                           </svg>
-                       </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-copyright">
-                    <span>Feito com</span>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="0">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                    </svg>
-                    <span>por Manoela Pinheiro</span>
-                </div>
-                
-                <div class="footer-year">
-                    © <span id="current-year"></span> Todos os direitos reservados.
-                </div>
-                
-                <button class="scroll-top" onclick="scrollToTop()">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="18,15 12,9 6,15"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    </footer>
+  <footer class="footer">
+    <p>© <span id="current-year"></span> Manoela Pinheiro. Feito com carinho e foco em experiência visual.</p>
+  </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="scripts.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
