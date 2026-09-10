@@ -10,8 +10,9 @@ Este site foi criado para apresentar de forma clara e interativa os projetos nos
 
 -   **Início:** Uma introdução ao meu trabalho e destaques.
 -   **Sobre:** Detalhes sobre minha jornada, minhas paixões e minhas competências.
--   **Projetos:** Uma galeria com meus trabalhos recentes, incluindo descrições e links para os repositórios.
--   **Habilidades:** Uma lista detalhada das tecnologias e ferramentas que domino.
+-   **Jornada:** Minha formação acadêmica, projetos e experiência profissional.
+-   **Projetos:** Uma seleção manual de trabalhos, com descrições e links para os repositórios.
+-   **Habilidades:** As principais tecnologias e ferramentas com as quais trabalho.
 -   **Contato:** Minhas informações de contato para oportunidades e colaborações.
 
 ## 🚀 Tecnologias Utilizadas
@@ -24,19 +25,19 @@ Este portfólio foi construído com as seguintes tecnologias:
 | **CSS3** | Estilização, animações e responsividade. |
 | **JavaScript** | Interatividade, manipulação do DOM e lógica do front-end. |
 
-## 🌟 Habilidades em Destaque
+## 🌟 Habilidades em destaque
 
-Ao longo da minha jornada, adquiri experiência com diversas tecnologias e metodologias, incluindo:
+As tecnologias e ferramentas apresentadas no portfólio estão organizadas de forma objetiva:
 
--   **Front-End:** HTML5, CSS3, JavaScript, React, Vue.js, Tailwind CSS e Bulma.
--   **Back-End:** PHP, Node.js.
--   **Banco de Dados:** MySQL e SQL.
--   **Ferramentas e Metodologias:** Git, GitHub, Figma, Scrum e Kanban.
+-   **Frontend:** HTML, CSS, JavaScript, TypeScript, Vue.js e React.
+-   **Backend:** Node.js, Express e APIs REST.
+-   **Banco de dados:** MongoDB, MySQL e SQLite.
+-   **Ferramentas:** Git, GitHub, GitHub Actions e Docker.
 
 ## 📫 Contato
 
 Vamos nos conectar! Você pode me encontrar nas seguintes plataformas:
 
--   **E-mail:** [manoelaps2022@gmail.com](mailto:manoelaps2022@gmail.com)
--   **LinkedIn:** [https://www.linkedin.com/in/manoela-p-44aa75259/](https://www.linkedin.com/in/manoela-p-44aa75259/)
+-   **E-mail:** [manoelap2903@gmail.com](mailto:manoelap2903@gmail.com)
+-   **LinkedIn:** [https://www.linkedin.com/in/manoelaps/](https://www.linkedin.com/in/manoelaps/)
 -   **GitHub:** [https://github.com/Ma2903](https://github.com/Ma2903)
