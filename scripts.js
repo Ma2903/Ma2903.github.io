@@ -95,7 +95,7 @@ function renderProjects() {
   projectsGrid.innerHTML = featuredProjects.map((project) => `
     <article class="project-card reveal">
       <div class="project-content">
-        <h3><span aria-hidden="true">🛰</span> ${project.title}</h3>
+        <h3><svg class="icon" aria-hidden="true"><use href="#icon-rocket"></use></svg> ${project.title}</h3>
         <p>${project.description}</p>
         <div class="project-tags">
           ${project.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join('')}
@@ -108,6 +108,7 @@ function renderProjects() {
             rel="noopener"
           >
             Ver no GitHub
+            <svg class="icon" aria-hidden="true"><use href="#icon-external"></use></svg>
           </a>
         </p>
       </div>
