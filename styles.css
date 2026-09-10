@@ -34,6 +34,47 @@ img {
   max-width: 100%;
 }
 
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.icon {
+  width: 1.15em;
+  height: 1.15em;
+  flex: 0 0 auto;
+  vertical-align: -0.18em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.section-icon {
+  color: var(--brand);
+  filter: drop-shadow(0 0 7px rgba(149, 197, 255, 0.45));
+}
+
+h2,
+h3,
+.btn {
+  align-items: center;
+}
+
+h2,
+h3 {
+  gap: 0.4rem;
+}
+
+h2,
+.skill-panel h3,
+.project-content h3 {
+  display: flex;
+}
+
 button,
 input {
   font: inherit;
@@ -231,7 +272,15 @@ h1 span {
   text-align: center;
 }
 
+.tech-pills .icon {
+  color: var(--brand);
+  font-size: 1.05rem;
+}
+
 .btn {
+  display: inline-flex;
+  justify-content: center;
+  gap: 0.45rem;
   text-decoration: none;
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -358,6 +407,11 @@ h1 span {
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: -0.03em;
+}
+
+.floating-icon .icon {
+  width: 1.45rem;
+  height: 1.45rem;
 }
 
 .icon-a {
@@ -570,12 +624,20 @@ h1 span {
   text-align: center;
 }
 
+.contact-panel h2 {
+  justify-content: center;
+}
+
 .contact-links {
   display: flex;
   justify-content: center;
   gap: 0.7rem;
   margin-top: 1rem;
   flex-wrap: wrap;
+}
+
+.contact-links .icon {
+  font-size: 1.05rem;
 }
 
 .back-to-top {
@@ -590,11 +652,12 @@ h1 span {
   color: white;
   cursor: pointer;
   display: none;
+  place-items: center;
   z-index: 50;
 }
 
 .back-to-top.show {
-  display: block;
+  display: grid;
 }
 
 .footer {
