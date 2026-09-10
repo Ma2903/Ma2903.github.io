@@ -10,46 +10,82 @@ const backToTop = document.getElementById('back-to-top');
 // Curadoria manual: a ordem e o conteúdo não dependem da API do GitHub.
 const featuredProjects = [
   {
-    title: 'MedResiduos',
-    description: 'Plataforma web para conectar hospitais e pacientes e apoiar a rastreabilidade e o descarte correto de resíduos de saúde domiciliares.',
-    image: 'https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=600',
-    tags: ['React', 'Node.js', 'Express', 'MySQL'],
-    url: 'https://github.com/Ma2903/MedResiduos'
-  },
-  {
-    title: 'APAE',
-    description: 'Aplicação web para gerenciar usuários, eventos e recursos da APAE, com uma interface voltada à administração da instituição.',
-    image: 'https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=600',
-    tags: ['HTML', 'CSS', 'JavaScript', 'PHP'],
-    url: 'https://github.com/Ma2903/APAE'
-  },
-  {
-    title: 'digital-yearbook',
-    description: 'Projeto digital yearbook disponível no GitHub.',
-    image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1000&q=80',
-    tags: ['Projeto web'],
-    url: 'https://github.com/Ma2903/digital-yearbook'
-  },
-  {
     title: 'DevLooks',
     description: 'Loja virtual para personalizar e baixar avatares e encontrar roupas e itens com temáticas geek e de programação.',
-    image: 'https://images.pexels.com/photos/5868272/pexels-photo-5868272.jpeg?auto=compress&cs=tinysrgb&w=600',
     tags: ['Vue.js', 'Node.js', 'Express', 'MongoDB'],
     url: 'https://github.com/Ma2903/DevLooks'
   },
   {
-    title: 'reading-marathon',
-    description: 'Projeto reading marathon disponível no GitHub.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80',
+    title: 'Protótipo da MedResiduos',
+    description: 'Protótipo inicial da plataforma MedResiduos para o gerenciamento e o descarte correto de resíduos de saúde.',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    url: 'https://github.com/Ma2903/Prototipo-da-MedResiduos'
+  },
+  {
+    title: 'TCC — Escrita e Design',
+    description: 'Repositório com documentação, planejamento, apresentação e materiais de design visual do TCC.',
+    tags: ['Documentação', 'Design'],
+    url: 'https://github.com/Ma2903/TCC--Escrito-e-design'
+  },
+  {
+    title: 'APAE',
+    description: 'Aplicação web para gerenciar usuários, eventos e recursos da APAE, com uma interface voltada à administração da instituição.',
+    tags: ['HTML', 'CSS', 'JavaScript', 'PHP'],
+    url: 'https://github.com/Ma2903/APAE'
+  },
+  {
+    title: 'Reading Marathon',
+    description: 'Projeto Reading Marathon disponível no GitHub.',
     tags: ['Projeto web'],
     url: 'https://github.com/Ma2903/reading-marathon'
   },
   {
-    title: 'bingo-game',
+    title: 'ManuReceitas',
+    description: 'Projeto ManuReceitas disponível no GitHub.',
+    tags: ['Projeto web'],
+    url: 'https://github.com/Ma2903/ManuReceitas'
+  },
+  {
+    title: 'Bingo',
     description: 'Jogo de bingo para desenvolvedores no qual os termos de programação substituem os números tradicionais.',
-    image: 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=600',
     tags: ['HTML', 'CSS', 'JavaScript'],
     url: 'https://github.com/Ma2903/bingo-game'
+  },
+  {
+    title: 'Datastruct School',
+    description: 'Aplicação educacional voltada ao estudo de estruturas de dados, com teoria, exemplos e conteúdos interativos.',
+    tags: ['PHP', 'HTML', 'CSS'],
+    url: 'https://github.com/jp-girotto/EstruturaDeDados'
+  },
+  {
+    title: 'Chatbot Dev',
+    description: 'Chatbot parceiro de estudos que utiliza a API do Google Gemini.',
+    tags: ['Google Gemini', 'API', 'JavaScript'],
+    url: 'https://github.com/DevZIKIII/ChatbotDevSafe'
+  },
+  {
+    title: 'Anuário Digital',
+    description: 'Projeto de anuário digital disponível no GitHub.',
+    tags: ['Projeto web'],
+    url: 'https://github.com/Ma2903/digital-yearbook'
+  },
+  {
+    title: 'MedResiduos',
+    description: 'Plataforma web para conectar hospitais e pacientes e apoiar a rastreabilidade e o descarte correto de resíduos de saúde domiciliares.',
+    tags: ['React', 'Node.js', 'Express', 'MySQL'],
+    url: 'https://github.com/Ma2903/MedResiduos'
+  },
+  {
+    title: 'Portal Culinário',
+    description: 'Aplicação de chat com tema culinário para comunicação em tempo real entre múltiplos usuários.',
+    tags: ['React', 'Node.js', 'Socket.IO', 'WebSockets'],
+    url: 'https://github.com/Ma2903/Portal-Culinario'
+  },
+  {
+    title: 'TCC-DS',
+    description: 'Site com sugestões de alimentação balanceada e atividades físicas, desenvolvido como trabalho de conclusão de curso.',
+    tags: ['HTML', 'CSS', 'JavaScript', 'Node.js'],
+    url: 'https://github.com/jp-girotto/TCC-DS'
   }
 ];
 
@@ -57,12 +93,11 @@ function renderProjects() {
   if (!projectsGrid) return;
   projectsGrid.innerHTML = featuredProjects.map((project) => `
     <article class="project-card reveal">
-      <img src="${project.image}" alt="Preview do projeto ${project.title}" loading="lazy" />
       <div class="project-content">
-        <h3>🛰 ${project.title}</h3>
+        <h3><span aria-hidden="true">🛰</span> ${project.title}</h3>
         <p>${project.description}</p>
         <div class="project-tags">${project.tags.map((tag) => `<span class="project-tag">${tag}</span>`).join('')}</div>
-        <p style="margin-top:.85rem;"><a class="btn btn-secondary" href="${project.url}" target="_blank" rel="noopener">Ver no GitHub</a></p>
+        <p class="project-action"><a class="btn btn-secondary" href="${project.url}" target="_blank" rel="noopener">Ver no GitHub</a></p>
       </div>
     </article>
   `).join('');
@@ -96,15 +131,28 @@ function initNavbar() {
     }
   });
 
-  navToggle?.addEventListener('click', () => navMenu?.classList.toggle('active'));
+  function closeMenu() {
+    navMenu?.classList.remove('active');
+    navToggle?.setAttribute('aria-expanded', 'false');
+    navToggle?.setAttribute('aria-label', 'Abrir menu');
+  }
+
+  navToggle?.addEventListener('click', () => {
+    const isOpen = navMenu?.classList.toggle('active') || false;
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+    navToggle.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+  });
   document.querySelectorAll('.nav-link').forEach((link) => {
-    link.addEventListener('click', () => navMenu?.classList.remove('active'));
+    link.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
   });
   backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
 function initHeroParallax() {
-  if (!heroVisual) return;
+  if (!heroVisual || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   window.addEventListener('mousemove', (event) => {
     const x = (event.clientX / window.innerWidth - 0.5) * 12;
     const y = (event.clientY / window.innerHeight - 0.5) * -12;
@@ -128,6 +176,7 @@ function initStarfield() {
     }
   }
 
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   function draw() {
     context.clearRect(0, 0, starfield.width, starfield.height);
     for (const star of stars) {
@@ -138,7 +187,7 @@ function initStarfield() {
       context.fillStyle = `rgba(225,237,255,${Math.max(0.15, star.a)})`;
       context.fill();
     }
-    requestAnimationFrame(draw);
+    if (!reduceMotion) requestAnimationFrame(draw);
   }
 
   resize();

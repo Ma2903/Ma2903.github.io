@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manoela Pinheiro | Desenvolvedora Júnior</title>
   <meta name="description" content="Portfólio de Manoela Pinheiro, desenvolvedora júnior com experiência em projetos web e produtos digitais." />
-  <meta name="keywords" content="Manoela Pinheiro, Portfolio, Frontend, React, Vue, Node.js, Full Stack" />
+  <meta name="keywords" content="Manoela Pinheiro, desenvolvimento web, JavaScript, TypeScript, React, Vue.js, Node.js" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,12 +13,13 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
   <canvas id="starfield" aria-hidden="true"></canvas>
   <div class="moon-haze" aria-hidden="true"></div>
 
   <header class="header" id="header">
     <nav class="nav container">
-      <a href="#home" class="logo"><span>M</span>anoela</a>
+      <a href="#main-content" class="logo"><span>M</span>anoela</a>
       <div class="nav-menu" id="nav-menu">
         <a href="#about" class="nav-link">Sobre</a>
         <a href="#timeline" class="nav-link">Jornada</a>
@@ -26,25 +27,28 @@
         <a href="#projects" class="nav-link">Projetos</a>
         <a href="#contact" class="nav-link">Contato</a>
       </div>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu">☰</button>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Abrir menu" aria-controls="nav-menu" aria-expanded="false"><span aria-hidden="true">☰</span></button>
     </nav>
   </header>
 
-  <main id="home">
+  <main id="main-content">
     <section class="hero section">
       <div class="container hero-grid">
         <div>
-          <p class="eyebrow">Desenvolvedora Júnior</p>
+          <p class="eyebrow">Desenvolvedora Júnior • Técnica em DS</p>
           <h1>Desenvolvimento Web com foco em <span>transformar problemas em produtos.</span></h1>
           <p class="hero-text">
             Desenvolvedora júnior com experiência em projetos web e desenvolvimento de produtos digitais. Trabalho principalmente com JavaScript, TypeScript, Vue.js, React e Node.js.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects">Ver projetos</a>
-            <a class="btn btn-secondary" href="currículo Manoela Pinheiro da Silva.pdf" download>Baixar currículo</a>
           </div>
           <div class="tech-pills">
-            <span>⚛ React</span><span>🟢 Node.js</span><span>🧩 Vue.js</span><span>◆ TypeScript</span><span>◉ JavaScript</span>
+            <span><b aria-hidden="true">⚛</b> React</span>
+            <span><b aria-hidden="true">⬢</b> Node.js</span>
+            <span><b aria-hidden="true">V</b> Vue.js</span>
+            <span><b aria-hidden="true">TS</b> TypeScript</span>
+            <span><b aria-hidden="true">JS</b> JavaScript</span>
           </div>
         </div>
 
@@ -56,9 +60,9 @@
           <div class="moon-ring"></div>
           <div class="moon-glow"></div>
           <div class="floating-icon icon-a">⚛</div>
-          <div class="floating-icon icon-b">🟩</div>
-          <div class="floating-icon icon-c">🧠</div>
-          <div class="floating-icon icon-d">💡</div>
+          <div class="floating-icon icon-b">V</div>
+          <div class="floating-icon icon-c">TS</div>
+          <div class="floating-icon icon-d">&lt;/&gt;</div>
           <div class="hero-card">Web • Produtos digitais • Aprendizado</div>
         </div>
       </div>
@@ -68,8 +72,8 @@
       <div class="container two-columns">
         <img src="eu.jfif" alt="Foto de Manoela Pinheiro" class="profile" />
         <article class="panel glow-panel">
-          <h2>🌙 Sobre mim</h2>
-          <p>Sou desenvolvedora júnior, formada em Desenvolvimento de Sistemas pela ETEC e em Análise e Desenvolvimento de Sistemas pela FATEC.</p>
+          <h2><span aria-hidden="true">🌙</span> Sobre mim</h2>
+          <p>Sou desenvolvedora júnior, técnica em Desenvolvimento de Sistemas pela ETEC e tecnóloga em Análise e Desenvolvimento de Sistemas pela FATEC.</p>
           <p>Minha trajetória começou no curso técnico, onde tive meus primeiros contatos com desenvolvimento web e comecei a aprender principalmente através de projetos.</p>
           <p>Atualmente trabalho na Multimídia Educacional, atuando no desenvolvimento do Creator4all, um produto voltado à educação.</p>
           <p>Tenho maior afinidade com desenvolvimento web e tecnologias como JavaScript, TypeScript, Vue.js, React e Node.js. Também tenho experiência com APIs, bancos de dados, Git e desenvolvimento de aplicações web.</p>
@@ -80,19 +84,19 @@
 
     <section id="timeline" class="section">
       <div class="container">
-        <h2>🗓 Minha jornada</h2>
+        <h2><span aria-hidden="true">🗓</span> Minha jornada</h2>
         <div class="timeline-vertical">
           <article class="timeline-item panel glow-panel">
             <span class="timeline-dot" aria-hidden="true"></span>
             <span class="timeline-year">2023 — ETEC</span>
-            <h3>Técnico em Desenvolvimento de Sistemas</h3>
+            <h3>Técnica em Desenvolvimento de Sistemas</h3>
             <p>Primeiros contatos com desenvolvimento web, lógica, projetos e fundamentos de tecnologia.</p>
           </article>
 
           <article class="timeline-item panel glow-panel">
             <span class="timeline-dot" aria-hidden="true"></span>
             <span class="timeline-year">2024 — 2025</span>
-            <h3>Tecnologia em Análise e Desenvolvimento de Sistemas</h3>
+            <h3>Tecnóloga em Análise e Desenvolvimento de Sistemas</h3>
             <p>Aprofundamento técnico e desenvolvimento de projetos acadêmicos e colaborativos.</p>
           </article>
 
@@ -115,20 +119,20 @@
 
     <section id="skills" class="section">
       <div class="container">
-        <h2>✨ Habilidades & Conhecimentos</h2>
+        <h2><span aria-hidden="true">✨</span> Habilidades e conhecimentos</h2>
         <div class="skills-grid">
-          <article class="panel skill-panel"><h3>🎨 Frontend</h3><p>HTML • CSS • JavaScript • TypeScript • Vue.js • React</p></article>
-          <article class="panel skill-panel"><h3>🧱 Backend</h3><p>Node.js • Express • APIs REST</p></article>
-          <article class="panel skill-panel"><h3>🗃 Banco de dados</h3><p>MongoDB • MySQL • SQLite</p></article>
-          <article class="panel skill-panel"><h3>⚙ Ferramentas</h3><p>Git • GitHub • GitHub Actions • Docker</p></article>
-          <article class="panel skill-panel"><h3>🤝 Soft skills</h3><p>Comunicação • colaboração • organização • planejamento</p></article>
+          <article class="panel skill-panel"><h3><span aria-hidden="true">🎨</span> Frontend</h3><p>HTML • CSS • JavaScript • TypeScript • Vue.js • React</p></article>
+          <article class="panel skill-panel"><h3><span aria-hidden="true">🧱</span> Backend</h3><p>Node.js • Express • APIs REST</p></article>
+          <article class="panel skill-panel"><h3><span aria-hidden="true">🗃</span> Banco de dados</h3><p>MongoDB • MySQL • SQLite</p></article>
+          <article class="panel skill-panel"><h3><span aria-hidden="true">⚙</span> Ferramentas</h3><p>Git • GitHub • GitHub Actions • Docker</p></article>
+          <article class="panel skill-panel"><h3><span aria-hidden="true">🤝</span> Soft skills</h3><p>Comunicação • colaboração • organização • planejamento</p></article>
         </div>
       </div>
     </section>
 
     <section id="projects" class="section">
       <div class="container">
-        <h2>🚀 Projetos em destaque</h2>
+        <h2><span aria-hidden="true">🚀</span> Projetos em destaque</h2>
         <p class="muted">Uma seleção de projetos acadêmicos, colaborativos e pessoais.</p>
 
         <div id="projects-grid" class="projects-grid"></div>
@@ -138,12 +142,12 @@
 
     <section id="contact" class="section">
       <div class="container panel contact-panel glow-panel">
-        <h2>💬 Vamos conversar?</h2>
-        <p>Disponível para oportunidades em desenvolvimento web com foco em frontend e experiência do usuário.</p>
+        <h2><span aria-hidden="true">💬</span> Vamos conversar?</h2>
+        <p>Entre em contato para conversar sobre oportunidades e projetos de desenvolvimento web.</p>
         <div class="contact-links">
-          <a class="btn btn-primary" href="mailto:manoelap2903@gmail.com">📧 Email</a>
-          <a class="btn btn-secondary" href="https://github.com/Ma2903" target="_blank" rel="noopener">🐙 GitHub</a>
-          <a class="btn btn-secondary" href="https://www.linkedin.com/in/manoelaps/" target="_blank" rel="noopener">💼 LinkedIn</a>
+          <a class="btn btn-primary" href="mailto:manoelap2903@gmail.com"><span aria-hidden="true">✉</span> E-mail</a>
+          <a class="btn btn-secondary" href="https://github.com/Ma2903" target="_blank" rel="noopener"><span aria-hidden="true">⌘</span> GitHub</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/manoelaps/" target="_blank" rel="noopener"><span aria-hidden="true">in</span> LinkedIn</a>
         </div>
       </div>
     </section>

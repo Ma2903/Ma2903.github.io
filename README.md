@@ -1,6 +1,6 @@
 # Portfólio | Manoela Pinheiro
 
-Bem-vindo ao repositório do meu portfólio pessoal! Este projeto foi desenvolvido para ser um espaço central onde compartilho minha jornada como desenvolvedora, meus projetos e as tecnologias com as quais trabalho.
+Bem-vindo ao repositório do meu portfólio pessoal! Sou desenvolvedora júnior, técnica em Desenvolvimento de Sistemas pela ETEC e tecnóloga em Análise e Desenvolvimento de Sistemas pela FATEC. Este projeto é o espaço onde compartilho minha jornada, meus projetos e as tecnologias com as quais trabalho.
 
 **[Acesse o portfólio ao vivo aqui!](https://ma2903.github.io/)**
 
