@@ -8,12 +8,12 @@ Bem-vindo ao repositório do meu portfólio pessoal! Sou desenvolvedora júnior,
 
 Este site foi criado para apresentar de forma clara e interativa os projetos nos quais venho trabalhando. Ele foi estruturado para fornecer uma visão completa sobre minhas habilidades e minha paixão por desenvolvimento, incluindo seções como:
 
--   **Início:** Uma introdução ao meu trabalho e destaques.
--   **Sobre:** Detalhes sobre minha jornada, minhas paixões e minhas competências.
--   **Jornada:** Minha formação acadêmica, projetos e experiência profissional.
--   **Projetos:** Uma seleção manual de trabalhos, com descrições e links para os repositórios.
--   **Habilidades:** As principais tecnologias e ferramentas com as quais trabalho.
--   **Contato:** Minhas informações de contato para oportunidades e colaborações.
+- **Início:** Uma introdução ao meu trabalho e destaques.
+- **Sobre:** Detalhes sobre minha jornada, minhas paixões e minhas competências.
+- **Jornada:** Minha formação acadêmica, projetos e experiência profissional.
+- **Projetos:** Uma seleção manual de trabalhos, com descrições e links para os repositórios.
+- **Habilidades:** As principais tecnologias e ferramentas com as quais trabalho.
+- **Contato:** Minhas informações de contato para oportunidades e colaborações.
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -29,15 +29,15 @@ Este portfólio foi construído com as seguintes tecnologias:
 
 As tecnologias e ferramentas apresentadas no portfólio estão organizadas de forma objetiva:
 
--   **Frontend:** HTML, CSS, JavaScript, TypeScript, Vue.js e React.
--   **Backend:** Node.js, Express e APIs REST.
--   **Banco de dados:** MongoDB, MySQL e SQLite.
--   **Ferramentas:** Git, GitHub, GitHub Actions e Docker.
+- **Frontend:** HTML, CSS, JavaScript, TypeScript, Vue.js e React.
+- **Backend:** Node.js, Express e APIs REST.
+- **Banco de dados:** MongoDB, MySQL e SQLite.
+- **Ferramentas:** Git, GitHub, GitHub Actions e Docker.
 
 ## 📫 Contato
 
 Vamos nos conectar! Você pode me encontrar nas seguintes plataformas:
 
--   **E-mail:** [manoelap2903@gmail.com](mailto:manoelap2903@gmail.com)
--   **LinkedIn:** [https://www.linkedin.com/in/manoelaps/](https://www.linkedin.com/in/manoelaps/)
--   **GitHub:** [https://github.com/Ma2903](https://github.com/Ma2903)
+- **E-mail:** [manoelap2903@gmail.com](mailto:manoelap2903@gmail.com)
+- **LinkedIn:** [https://www.linkedin.com/in/manoelaps/](https://www.linkedin.com/in/manoelaps/)
+- **GitHub:** [https://github.com/Ma2903](https://github.com/Ma2903)
